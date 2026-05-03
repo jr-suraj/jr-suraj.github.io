@@ -1,0 +1,24 @@
+# Site Settings
+title: "Suraj | Portfolio"
+description: "Freelance Brand, UI/UX Designer and Front-end Developer based in Chiang Mai, Thailand."
+url: "https://jr-suraj.github.io" # Your production URL
+baseurl: "" # Leave empty for user/organization pages
+
+# Build Settings
+markdown: kramdown
+highlighter: rouge
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/
+  - .bundle/
+  - .git/
+  - README.md
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"

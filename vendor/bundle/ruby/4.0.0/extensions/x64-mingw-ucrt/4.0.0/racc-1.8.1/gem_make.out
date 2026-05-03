@@ -1,0 +1,19 @@
+current directory: D:/PROJECTS/Suraj Repository/jr-suraj.github.io/vendor/bundle/ruby/4.0.0/gems/racc-1.8.1/ext/racc/cparse
+C:/Ruby40-x64/bin/ruby.exe extconf.rb
+creating Makefile
+
+current directory: D:/PROJECTS/Suraj Repository/jr-suraj.github.io/vendor/bundle/ruby/4.0.0/gems/racc-1.8.1/ext/racc/cparse
+make -j9 DESTDIR\= sitearchdir\=./.gem.20260503-12568-949cst sitelibdir\=./.gem.20260503-12568-949cst clean
+
+current directory: D:/PROJECTS/Suraj Repository/jr-suraj.github.io/vendor/bundle/ruby/4.0.0/gems/racc-1.8.1/ext/racc/cparse
+make -j9 DESTDIR\= sitearchdir\=./.gem.20260503-12568-949cst sitelibdir\=./.gem.20260503-12568-949cst
+generating cparse-x64-mingw-ucrt.def
+compiling cparse.c
+linking shared-object racc/cparse.so
+
+current directory: D:/PROJECTS/Suraj Repository/jr-suraj.github.io/vendor/bundle/ruby/4.0.0/gems/racc-1.8.1/ext/racc/cparse
+make -j9 DESTDIR\= sitearchdir\=./.gem.20260503-12568-949cst sitelibdir\=./.gem.20260503-12568-949cst install
+/usr/bin/install -c -m 0755 cparse.so ./.gem.20260503-12568-949cst/racc
+
+current directory: D:/PROJECTS/Suraj Repository/jr-suraj.github.io/vendor/bundle/ruby/4.0.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20260503-12568-949cst sitelibdir\=./.gem.20260503-12568-949cst clean

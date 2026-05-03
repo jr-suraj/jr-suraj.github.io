@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suraj | Nakamura House</title>
+    
+    <!-- ==========================================
+         Theme Check Preflight
+         ========================================== -->
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <!-- ==========================================
+         Fonts & Icons
+         ========================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- ==========================================
+         Tailwind CSS Configuration
+         ========================================== -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', 
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#1c2431',
+                        orange: '#fb923c', /* Restored global orange for UI consistency */
+                        nakamura: '#C42026', /* Kept for specific project branding elements */
+                        surface: '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- ==========================================
+         Custom CSS
+         ========================================== -->
+    <style>
+        body { -webkit-font-smoothing: antialiased; }
+        
+        /* Custom Ambient Cursor Glow - Restored to Global Orange */
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(251, 146, 60, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease, opacity 0.3s ease;
+            will-change: transform, width, height;
+            opacity: 0; 
+        }
+
+        .custom-cursor.active-project {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(251, 146, 60, 0.25) 0%, transparent 60%);
+        }
+
+        /* Menu Interactive Hover Gradient - Matches Global Style */
+        .menu-gradient-track {
+            background-image: radial-gradient(
+                circle 100px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                #fcd34d 0%,   /* Glowing Yellow-Orange */
+                #fb923c 40%,  /* Brand Orange */
+                #ea580c 100%  /* Deep Orange */
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            background-repeat: no-repeat;
+        }
+
+        /* Solid Background Interactive Hover Gradient */
+        .bg-gradient-track {
+            background-image: radial-gradient(
+                circle 150px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                #fcd34d 0%,   
+                #fb923c 40%,  
+                #ea580c 100%  
+            );
+        }
+
+        .reveal-up {
+            animation: revealUpAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes revealUpAnim {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-sans bg-white dark:bg-navy text-slate-800 dark:text-slate-300 transition-colors duration-500 selection:bg-orange selection:text-white">
+
+    <div id="custom-cursor" class="custom-cursor hidden md:block"></div>
+
+    <!-- ==========================================
+         Fullscreen Overlay Menu
+         ========================================== -->
+    <div id="fullscreen-menu" class="fixed inset-0 z-[60] bg-white/90 dark:bg-black/90 backdrop-blur-2xl transition-all duration-700 ease-in-out opacity-0 pointer-events-none flex flex-col items-center justify-center">
+        <nav class="flex flex-col gap-4 text-center items-center">
+            <a href="index.html#about" class="menu-link track-hover opacity-0 font-serif text-5xl md:text-7xl tracking-tight group grid place-items-center">
+                <span class="col-start-1 row-start-1 py-3 px-6 text-black dark:text-white transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0">About</span>
+                <span class="col-start-1 row-start-1 py-3 px-6 text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none" aria-hidden="true">About</span>
+            </a>
+            <a href="index.html#resume" class="menu-link track-hover opacity-0 font-serif text-5xl md:text-7xl tracking-tight group grid place-items-center">
+                <span class="col-start-1 row-start-1 py-3 px-6 text-black dark:text-white transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0">Resume</span>
+                <span class="col-start-1 row-start-1 py-3 px-6 text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none" aria-hidden="true">Resume</span>
+            </a>
+            <a href="index.html#projects" class="menu-link track-hover opacity-0 font-serif text-5xl md:text-7xl tracking-tight group grid place-items-center">
+                <span class="col-start-1 row-start-1 py-3 px-6 text-black dark:text-white transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0">Projects</span>
+                <span class="col-start-1 row-start-1 py-3 px-6 text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none" aria-hidden="true">Projects</span>
+            </a>
+            <a href="index.html#contact" class="menu-link track-hover opacity-0 font-serif text-5xl md:text-7xl tracking-tight group grid place-items-center">
+                <span class="col-start-1 row-start-1 py-3 px-6 text-black dark:text-white transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0">Contact</span>
+                <span class="col-start-1 row-start-1 py-3 px-6 text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none" aria-hidden="true">Contact</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- ==========================================
+         Main Navigation Header
+         ========================================== -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-[70] bg-white/70 dark:bg-navy/70 backdrop-blur-xl border-b border-black/5 dark:border-white/5 transition-all duration-500">
+        <div class="max-w-[1100px] mx-auto px-6 lg:px-8 h-20 flex items-center justify-between relative">
+            
+            <!-- Global Logo -->
+            <a href="index.html#home" class="flex items-center gap-2.5 track-hover group">
+                <svg class="w-8 h-8 text-orange transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-180" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="5,4 19,4 12,12" />
+                    <polygon points="5,20 19,20 12,12" />
+                </svg>
+                <div class="font-serif text-2xl font-bold tracking-wide relative grid place-items-center">
+                    <span class="col-start-1 row-start-1 text-black dark:text-white transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0">SURAJ.</span>
+                    <span class="col-start-1 row-start-1 text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none" aria-hidden="true">SURAJ.</span>
+                </div>
+            </a>
+            
+            <div class="flex items-center gap-6">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="text-black dark:text-white hover:text-orange dark:hover:text-orange transition-colors duration-500 ease-in-out outline-none" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                    </svg>
+                </button>
+
+                <!-- Hamburger Menu -->
+                <button id="menu-toggle" class="group relative flex flex-col justify-center items-end w-12 h-12 -mr-2 outline-none cursor-pointer z-[70]" aria-label="Toggle Menu">
+                    <span class="absolute top-[21px] right-[8px] w-8 h-[1.5px] bg-black dark:bg-white transition-all duration-500 ease-in-out pointer-events-none origin-center"></span>
+                    <span class="absolute top-[29px] right-[8px] w-6 h-[1.5px] bg-black dark:bg-white transition-all duration-500 ease-in-out pointer-events-none origin-center"></span>
+                </button>
+            </div>
+            
+            <div id="scroll-progress" class="absolute top-0 left-0 h-[2px] bg-orange w-0"></div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24">
+        <div class="max-w-[1100px] mx-auto px-6 lg:px-8">
+            
+            <!-- Back to Projects Action -->
+            <div class="mb-10 js-scroll-anim opacity-0">
+                <a href="index.html#projects" class="inline-flex items-center gap-3 track-hover group text-slate-400 hover:text-orange transition-colors duration-300">
+                    <div class="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center group-hover:border-orange transition-colors duration-300">
+                        <i class="ph ph-arrow-left text-sm transition-transform duration-500 group-hover:-translate-x-1"></i>
+                    </div>
+                    <span class="font-sans text-xs font-bold tracking-widest uppercase mt-0.5">Back to Projects</span>
+                </a>
+            </div>
+
+            <!-- Project Title Section -->
+            <div class="mb-16 mt-4 flex flex-col items-center text-center">
+                <p class="text-orange text-sm md:text-base uppercase tracking-widest font-bold mb-6 transition-colors duration-500 blur-in-title">Branding & Photography</p>
+                <h1 class="font-serif text-6xl md:text-[6.5rem] leading-none tracking-tight text-black dark:text-white transition-colors duration-500 mb-8 blur-in-title">Nakamura House</h1>
+            </div>
+
+            <!-- Full Width Hero Image -->
+            <div class="w-full rounded-2xl overflow-hidden shadow-2xl mb-24 opacity-0 js-scroll-anim border border-black/5 dark:border-white/5">
+                <img src="images/nakamura.png" alt="Nakamura House Front View" class="w-full h-full object-cover transition-all duration-700 hover:scale-[1.02]">
+            </div>
+
+            <!-- Project Details Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-0 mb-32 opacity-0 js-scroll-anim">
+                
+                <!-- Left Column: Metadata -->
+                <div class="md:col-span-4 flex flex-col gap-10 border-t md:border-t-0 md:border-r border-black/10 dark:border-white/10 pt-10 md:pt-0 md:pr-12 lg:pr-16">
+                    <div>
+                        <h4 class="text-xs uppercase tracking-widest text-orange font-bold mb-2">Client</h4>
+                        <p class="text-xl font-serif text-black dark:text-white transition-colors duration-500">Nakamura Real Estate</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xs uppercase tracking-widest text-orange font-bold mb-2">Role</h4>
+                        <p class="text-lg text-slate-700 dark:text-slate-300 font-light transition-colors duration-500">Brand Identity<br>Architecture Photography</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xs uppercase tracking-widest text-orange font-bold mb-2">Year</h4>
+                        <p class="text-lg text-slate-700 dark:text-slate-300 font-light transition-colors duration-500">2024</p>
+                    </div>
+                </div>
+
+                <!-- Right Column: Description -->
+                <div class="md:col-span-8 flex flex-col justify-center md:pl-12 lg:pl-16">
+                    <h3 class="text-3xl md:text-4xl font-serif text-black dark:text-white mb-8 transition-colors duration-500">Minimalism Meets Modern Living</h3>
+                    <div class="text-slate-600 dark:text-slate-400 text-lg leading-[1.8] font-light space-y-6 transition-colors duration-500">
+                        <p>The Nakamura House project required a holistic approach to capture the stark, beautiful minimalism of this modern architectural marvel. The goal was to create a visual identity that felt as clean, structured, and deliberate as the building itself.</p>
+                        <p>I developed a stark red geometric logo that mirrors the distinctive rooflines of the property, providing a bold contrast against the predominantly white and timber facades of the home. The photography session focused on natural lighting, emphasizing the sharp angles, the warmth of the wooden slat details, and the serene landscaping surrounding the property.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brand Guidelines Section -->
+            <div class="mt-32 mb-32 border-t border-black/10 dark:border-white/10 pt-24 opacity-0 js-scroll-anim transition-colors duration-500">
+                <div class="mb-20">
+                    <h3 class="text-4xl md:text-5xl font-serif text-black dark:text-white transition-colors duration-500 mb-6 tracking-tight">Brand Guidelines</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-lg font-light max-w-2xl leading-relaxed transition-colors duration-500">
+                        The visual foundation of Nakamura House relies on a strict, minimalist system. These core guidelines ensure consistency across all architectural branding and marketing touchpoints.
+                    </p>
+                </div>
+
+                <div class="flex flex-col gap-24 md:gap-32">
+                    <!-- Color Palette -->
+                    <div>
+                        <h4 class="text-sm uppercase tracking-widest text-orange font-bold mb-10 border-b border-black/5 dark:border-white/5 pb-4 transition-colors duration-500">Color Palette</h4>
+                        
+                        <!-- Fixed size circles mapped perfectly into columns -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 md:gap-12">
+                            <!-- Color 1: Nakamura Red -->
+                            <div class="flex flex-col gap-4 group text-center">
+                                <div class="w-20 md:w-24 aspect-square mx-auto rounded-full bg-[#C42026] shadow-md transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-xl group-hover:shadow-[#C42026]/30"></div>
+                                <div>
+                                    <div class="text-[13px] font-bold text-black dark:text-white transition-colors duration-500 mb-1">Nakamura Red</div>
+                                    <div class="text-xs text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">#C42026</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Color 2: Slate Black -->
+                            <div class="flex flex-col gap-4 group text-center">
+                                <div class="w-20 md:w-24 aspect-square mx-auto rounded-full bg-[#222222] shadow-md transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-xl group-hover:shadow-[#222222]/30"></div>
+                                <div>
+                                    <div class="text-[13px] font-bold text-black dark:text-white transition-colors duration-500 mb-1">Slate Black</div>
+                                    <div class="text-xs text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">#222222</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Color 3: Timber Wood -->
+                            <div class="flex flex-col gap-4 group text-center">
+                                <div class="w-20 md:w-24 aspect-square mx-auto rounded-full bg-[#7A5240] shadow-md transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-xl group-hover:shadow-[#7A5240]/30"></div>
+                                <div>
+                                    <div class="text-[13px] font-bold text-black dark:text-white transition-colors duration-500 mb-1">Timber Wood</div>
+                                    <div class="text-xs text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">#7A5240</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Color 4: Facade White -->
+                            <div class="flex flex-col gap-4 group text-center">
+                                <div class="w-20 md:w-24 aspect-square mx-auto rounded-full bg-[#F2F4F3] border border-black/5 dark:border-white/10 shadow-sm transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-xl"></div>
+                                <div>
+                                    <div class="text-[13px] font-bold text-black dark:text-white transition-colors duration-500 mb-1">Facade White</div>
+                                    <div class="text-xs text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">#F2F4F3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Typography -->
+                    <div>
+                        <h4 class="text-sm uppercase tracking-widest text-orange font-bold mb-10 border-b border-black/5 dark:border-white/5 pb-4 transition-colors duration-500">Typography</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            
+                            <!-- Font 1: Playfair Display -->
+                            <div class="p-8 border border-black/5 dark:border-white/5 rounded-2xl bg-slate-50/50 dark:bg-surface/50 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-lg">
+                                <div class="flex justify-between items-end mb-6">
+                                    <span class="text-2xl font-serif text-black dark:text-white transition-colors duration-500">Playfair Display</span>
+                                    <span class="text-[10px] text-orange uppercase tracking-[0.2em] font-bold">Headings</span>
+                                </div>
+                                <div class="font-serif text-3xl md:text-4xl text-black dark:text-white transition-colors duration-500 mb-3 tracking-tight">
+                                    Aa Bb Cc Dd Ee Ff
+                                </div>
+                                <div class="text-sm text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">
+                                    A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>
+                                    0 1 2 3 4 5 6 7 8 9 & % $ @ ! ?
+                                </div>
+                            </div>
+                            
+                            <!-- Font 2: Inter -->
+                            <div class="p-8 border border-black/5 dark:border-white/5 rounded-2xl bg-slate-50/50 dark:bg-surface/50 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-lg">
+                                <div class="flex justify-between items-end mb-6">
+                                    <span class="text-2xl font-sans font-medium text-black dark:text-white transition-colors duration-500">Inter</span>
+                                    <span class="text-[10px] text-orange uppercase tracking-[0.2em] font-bold">Body Text</span>
+                                </div>
+                                <div class="font-sans font-light text-2xl md:text-3xl text-black dark:text-white transition-colors duration-500 mb-4 tracking-tight">
+                                    Aa Bb Cc Dd Ee Ff
+                                </div>
+                                <div class="text-sm text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">
+                                    a b c d e f g h i j k l m n o p q r s t u v w x y z<br>
+                                    0 1 2 3 4 5 6 7 8 9 & % $ @ ! ?
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Typographic Hierarchy -->
+                        <div class="mt-16">
+                            <h4 class="text-sm uppercase tracking-widest text-orange font-bold mb-6 border-b border-black/5 dark:border-white/5 pb-4 transition-colors duration-500">Typographic Hierarchy</h4>
+                            <p class="text-slate-600 dark:text-slate-400 text-base font-light mb-8 transition-colors duration-500 max-w-3xl leading-relaxed">
+                                A critical guide showing how to structure text. We provide examples for Headlines (H1), Subheads (H2), and Body Text (P), ensuring clear communication across all brand touchpoints.
+                            </p>
+
+                            <div class="p-8 md:p-12 border border-black/5 dark:border-white/5 rounded-2xl bg-slate-50/50 dark:bg-surface/50 backdrop-blur-sm transition-all duration-500 hover:shadow-lg flex flex-col gap-10">
+                                
+                                <!-- H1 Example -->
+                                <div class="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12 border-b border-black/5 dark:border-white/5 pb-8">
+                                    <div class="w-32 text-[10px] text-orange uppercase tracking-[0.2em] font-bold shrink-0">Headline / H1</div>
+                                    <div>
+                                        <div class="font-serif text-4xl md:text-5xl text-black dark:text-white transition-colors duration-500 tracking-tight mb-3">Modern Living Reimagined</div>
+                                        <div class="text-xs text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">Playfair Display • Bold • 48px / 60px</div>
+                                    </div>
+                                </div>
+
+                                <!-- H2 Example -->
+                                <div class="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12 border-b border-black/5 dark:border-white/5 pb-8">
+                                    <div class="w-32 text-[10px] text-orange uppercase tracking-[0.2em] font-bold shrink-0">Subhead / H2</div>
+                                    <div>
+                                        <div class="font-sans text-2xl md:text-3xl font-medium text-black dark:text-white transition-colors duration-500 tracking-tight mb-3">Architectural Excellence</div>
+                                        <div class="text-xs text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">Inter • Medium • 30px / 40px</div>
+                                    </div>
+                                </div>
+
+                                <!-- Body Example -->
+                                <div class="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12">
+                                    <div class="w-32 text-[10px] text-orange uppercase tracking-[0.2em] font-bold shrink-0">Body Text / P</div>
+                                    <div>
+                                        <div class="font-sans text-base md:text-lg text-slate-600 dark:text-slate-400 font-light leading-relaxed transition-colors duration-500 mb-3 max-w-2xl">The Nakamura House project required a holistic approach to capture the stark, beautiful minimalism of this modern architectural marvel.</div>
+                                        <div class="text-xs text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">Inter • Light • 16px / 28px</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brand Applications Section -->
+            <div class="mt-32 mb-32 border-t border-black/10 dark:border-white/10 pt-24 opacity-0 js-scroll-anim transition-colors duration-500">
+                <div class="mb-16">
+                    <h3 class="text-4xl md:text-5xl font-serif text-black dark:text-white transition-colors duration-500 mb-6 tracking-tight">Brand Applications</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-lg font-light max-w-2xl leading-relaxed transition-colors duration-500">
+                        Visual proof of how the branding comes together in the real world.
+                    </p>
+                </div>
+
+                <div class="flex flex-col gap-24">
+                    <!-- Application: Stationery -->
+                    <div class="group">
+                        <div class="w-full aspect-[4/3] md:aspect-video rounded-xl overflow-hidden mb-8 bg-slate-50 dark:bg-surface border border-black/5 dark:border-white/5">
+                            <img src="images/nakamura-office-mockup.png" alt="Digital Mockup" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 filter grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
+                            <div class="md:col-span-4">
+                                <h4 class="text-2xl md:text-3xl font-serif text-black dark:text-white transition-colors duration-500 m-0">Stationery</h4>
+                            </div>
+                            <div class="md:col-span-8">
+                                <p class="text-base md:text-lg text-slate-500 dark:text-slate-400 font-light leading-relaxed transition-colors duration-500 m-0">
+                                    Business cards, letterheads, and envelopes designed to convey premium real estate trust and structural elegance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Application: Digital -->
+                    <div class="group">
+                        <div class="w-full aspect-[4/3] md:aspect-video rounded-xl overflow-hidden mb-8 bg-slate-50 dark:bg-surface border border-black/5 dark:border-white/5">
+                            <img src="images/nakamura-digital-mockups.png" alt="Digital Mockup" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 filter grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
+                            <div class="md:col-span-4">
+                                <h4 class="text-2xl md:text-3xl font-serif text-black dark:text-white transition-colors duration-500 m-0">Digital</h4>
+                            </div>
+                            <div class="md:col-span-8">
+                                <p class="text-base md:text-lg text-slate-500 dark:text-slate-400 font-light leading-relaxed transition-colors duration-500 m-0">
+                                    Website homepage mockups, email signatures, and social media templates optimized for cohesive online presence.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Application: Physical Space -->
+                    <div class="group">
+                        <div class="w-full aspect-[4/3] md:aspect-video rounded-xl overflow-hidden mb-8 bg-slate-50 dark:bg-surface border border-black/5 dark:border-white/5">
+                            <img src="images/nakamura-sign-mockups.png" alt="Physical Space Mockup" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 filter grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
+                            <div class="md:col-span-4">
+                                <h4 class="text-2xl md:text-3xl font-serif text-black dark:text-white transition-colors duration-500 m-0">Physical Space</h4>
+                            </div>
+                            <div class="md:col-span-8">
+                                <p class="text-base md:text-lg text-slate-500 dark:text-slate-400 font-light leading-relaxed transition-colors duration-500 m-0">
+                                    Signage on the building facade, interior wayfinding, uniforms, and vehicle wraps extending the architectural identity.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next Project Navigation -->
+            <div class="border-t border-black/10 dark:border-white/10 py-20 text-center opacity-0 js-scroll-anim transition-colors duration-500">
+                <p class="text-orange uppercase tracking-widest text-sm font-bold mb-6">Next Project</p>
+                <a href="#" class="inline-block track-hover group">
+                    <div class="relative grid place-items-center">
+                        <h2 class="col-start-1 row-start-1 font-serif text-5xl md:text-7xl text-black dark:text-white transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0 tracking-tight">Kometra</h2>
+                        <h2 class="col-start-1 row-start-1 font-serif text-5xl md:text-7xl text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none tracking-tight" aria-hidden="true">Kometra</h2>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ==========================================
+         Footer
+         ========================================== -->
+    <footer class="bg-slate-50 dark:bg-navy border-t border-black/10 dark:border-white/10 pt-16 pb-10 text-center transition-colors duration-500">
+        <div class="max-w-[1100px] mx-auto px-6 flex flex-col items-center">
+            
+            <!-- Back to top button -->
+            <button id="back-to-top" class="group flex flex-col items-center gap-3 text-orange transition-colors duration-300 mb-16 outline-none track-hover">
+                <div class="w-12 h-12 rounded-full border border-orange/30 dark:border-orange/30 flex items-center justify-center group-hover:border-orange transition-colors duration-300 bg-white dark:bg-surface shadow-sm">
+                    <i class="ph ph-arrow-up text-xl transition-transform duration-300 group-hover:-translate-y-1"></i>
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-widest">Back to top</span>
+            </button>
+
+            <!-- Copyright & Socials -->
+            <div class="w-full flex flex-col md:flex-row justify-between items-center gap-6 border-t border-black/5 dark:border-white/5 pt-8">
+                <p class="text-slate-500 text-sm font-light">&copy; 2026 Suraj.</p>
+                <div class="flex gap-6 text-slate-400">
+                    <a href="#" class="hover:text-orange transition-colors duration-300"><i class="ph ph-dribbble-logo text-xl"></i></a>
+                    <a href="#" class="hover:text-orange transition-colors duration-300"><i class="ph ph-behance-logo text-xl"></i></a>
+                    <a href="#" class="hover:text-orange transition-colors duration-300"><i class="ph ph-linkedin-logo text-xl"></i></a>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         Scripts
+         ========================================== -->
+    <script type="module">
+        import { animate, stagger, inView } from "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm";
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Title Blur Effect
+            const sectionTitles = document.querySelectorAll('.blur-in-title');
+            sectionTitles.forEach(title => {
+                title.style.opacity = '0';
+                title.style.filter = 'blur(12px)';
+                title.style.transform = 'translateY(20px)';
+                
+                inView(title, () => {
+                    animate(title, { opacity: [0, 1], filter: ["blur(12px)", "blur(0px)"], y: [20, 0] }, { duration: 1.4, ease: [0.16, 1, 0.3, 1] });
+                }, { amount: 0.5, once: true });
+            });
+
+            // Menu Overlay Toggle Logic
+            const menuToggleBtn = document.getElementById('menu-toggle');
+            const menuOverlay = document.getElementById('fullscreen-menu');
+            const menuLinks = document.querySelectorAll('.menu-link');
+            const mainHeader = document.getElementById('main-header');
+            const lines = menuToggleBtn.querySelectorAll('span');
+            let isMenuOpen = false;
+
+            const toggleMenu = () => {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    lines[0].classList.add('translate-y-[4px]', 'rotate-45');
+                    lines[1].classList.remove('w-6');
+                    lines[1].classList.add('w-8', '-translate-y-[4px]', '-rotate-45');
+                    menuOverlay.classList.remove('opacity-0', 'pointer-events-none');
+                    mainHeader.classList.remove('bg-white/70', 'dark:bg-navy/70', 'backdrop-blur-xl', 'border-b');
+                    mainHeader.classList.add('bg-transparent', 'dark:bg-transparent');
+                    animate(menuLinks, { opacity: [0, 1], y: [40, 0] }, { delay: stagger(0.1, { startDelay: 0.2 }), duration: 0.8, ease: [0.16, 1, 0.3, 1] });
+                    document.body.style.overflow = 'hidden'; 
+                } else {
+                    lines[0].classList.remove('translate-y-[4px]', 'rotate-45');
+                    lines[1].classList.remove('w-8', '-translate-y-[4px]', '-rotate-45');
+                    lines[1].classList.add('w-6');
+                    menuOverlay.classList.add('opacity-0', 'pointer-events-none');
+                    mainHeader.classList.add('bg-white/70', 'dark:bg-navy/70', 'backdrop-blur-xl', 'border-b');
+                    mainHeader.classList.remove('bg-transparent', 'dark:bg-transparent');
+                    animate(menuLinks, { opacity: 0, y: 40 }, { duration: 0 });
+                    document.body.style.overflow = ''; 
+                }
+            };
+            menuToggleBtn.addEventListener('click', toggleMenu);
+
+            // Dark Mode Toggle
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const darkIcon = document.getElementById('theme-toggle-dark-icon');
+            const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+            if (document.documentElement.classList.contains('dark')) lightIcon.classList.remove('hidden');
+            else darkIcon.classList.remove('hidden');
+
+            themeToggleBtn.addEventListener('click', () => {
+                darkIcon.classList.toggle('hidden');
+                lightIcon.classList.toggle('hidden');
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            });
+
+            // Scroll Reveal
+            const scrollObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('opacity-0');
+                        entry.target.classList.add('reveal-up');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            document.querySelectorAll('.js-scroll-anim').forEach(el => scrollObserver.observe(el));
+
+            // Scroll Progress
+            const progressBar = document.getElementById('scroll-progress');
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                if (docHeight > 0) progressBar.style.width = (winScroll / docHeight) * 100 + '%';
+            });
+
+            // Back to Top Button
+            const backToTopBtn = document.getElementById('back-to-top');
+            if(backToTopBtn) {
+                backToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // Custom Cursor
+            const customCursor = document.getElementById('custom-cursor');
+            if (window.matchMedia("(pointer: fine)").matches && customCursor) {
+                let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+                let cursorX = mouseX, cursorY = mouseY;
+
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX; mouseY = e.clientY;
+                    customCursor.style.opacity = '1';
+                });
+
+                const renderCursor = () => {
+                    cursorX += (mouseX - cursorX) * 0.12;
+                    cursorY += (mouseY - cursorY) * 0.12;
+                    customCursor.style.transform = `translate(calc(${cursorX}px - 50%), calc(${cursorY}px - 50%))`;
+                    
+                    document.querySelectorAll('.track-hover:hover').forEach(link => {
+                        link.querySelectorAll('.menu-gradient-track').forEach(track => {
+                            const rect = track.getBoundingClientRect();
+                            track.style.setProperty('--mouse-x', `${cursorX - rect.left}px`);
+                            track.style.setProperty('--mouse-y', `${cursorY - rect.top}px`);
+                        });
+                        
+                        // Added solid background tracking
+                        link.querySelectorAll('.bg-gradient-track').forEach(track => {
+                            const rect = track.getBoundingClientRect();
+                            track.style.setProperty('--mouse-x', `${cursorX - rect.left}px`);
+                            track.style.setProperty('--mouse-y', `${cursorY - rect.top}px`);
+                        });
+                    });
+                    requestAnimationFrame(renderCursor);
+                };
+                requestAnimationFrame(renderCursor);
+
+                document.querySelectorAll('a, button').forEach(el => {
+                    el.addEventListener('mouseenter', () => customCursor.classList.add('active-project'));
+                    el.addEventListener('mouseleave', () => customCursor.classList.remove('active-project'));
+                });
+            }
+        });
+    </script>
+</body>
+</html>

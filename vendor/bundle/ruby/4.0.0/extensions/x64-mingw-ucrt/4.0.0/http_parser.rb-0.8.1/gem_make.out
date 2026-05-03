@@ -1,0 +1,20 @@
+current directory: D:/PROJECTS/Suraj Repository/jr-suraj.github.io/vendor/bundle/ruby/4.0.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+C:/Ruby40-x64/bin/ruby.exe extconf.rb
+creating Makefile
+
+current directory: D:/PROJECTS/Suraj Repository/jr-suraj.github.io/vendor/bundle/ruby/4.0.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make -j9 DESTDIR\= sitearchdir\=./.gem.20260503-12568-44wbzo sitelibdir\=./.gem.20260503-12568-44wbzo clean
+
+current directory: D:/PROJECTS/Suraj Repository/jr-suraj.github.io/vendor/bundle/ruby/4.0.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make -j9 DESTDIR\= sitearchdir\=./.gem.20260503-12568-44wbzo sitelibdir\=./.gem.20260503-12568-44wbzo
+generating ruby_http_parser-x64-mingw-ucrt.def
+compiling ruby_http_parser.c
+compiling ryah_http_parser.c
+linking shared-object ruby_http_parser.so
+
+current directory: D:/PROJECTS/Suraj Repository/jr-suraj.github.io/vendor/bundle/ruby/4.0.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make -j9 DESTDIR\= sitearchdir\=./.gem.20260503-12568-44wbzo sitelibdir\=./.gem.20260503-12568-44wbzo install
+/usr/bin/install -c -m 0755 ruby_http_parser.so ./.gem.20260503-12568-44wbzo
+
+current directory: D:/PROJECTS/Suraj Repository/jr-suraj.github.io/vendor/bundle/ruby/4.0.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20260503-12568-44wbzo sitelibdir\=./.gem.20260503-12568-44wbzo clean
