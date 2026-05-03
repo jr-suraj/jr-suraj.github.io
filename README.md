@@ -1,2 +1,62 @@
-Suraj | UI/UX & Graphic Design PortfolioWelcome to the source code for my personal design portfolio! This website serves as a digital showcase of my 10+ years of experience in UI/UX design, brand identity, and front-end development.🌍 Live Demo: https://jr-suraj.github.io✨ Key FeaturesThis portfolio isn't just about showing images; it's built to provide a premium, immersive user experience:Custom Interactive Cursor: A dynamic ambient glow that tracks mouse movement and highlights interactive elements and text gradients.Seamless Dark/Light Mode: Full user-controlled theme toggling that remembers your preference and includes staggered "city lights" transition effects.Framer Motion Animations: Smooth, scroll-triggered reveal animations and cinematic title blurs.Dedicated Case Studies: In-depth project pages (like the Nakamura House) featuring interactive, CSS-coded mockups and brand guidelines.Fully Responsive: Pixel-perfect layouts across mobile, tablet, and desktop viewports.🛠️ Tech StackBuilt from the ground up without heavy frameworks to ensure maximum performance and clean code:HTML5 & CSS3Tailwind CSS (via CDN for rapid styling and utility classes)JavaScript (ES6+)Framer Motion (via ESM for high-performance animations)Phosphor Icons & Devicons (for clean, scalable vector typography)📁 Repository Structureindex.html - The main landing page featuring the hero section, about me, resume timeline, and project gallery.nakamura.html - A dedicated, deep-dive case study page for the "Nakamura House" branding project, customized with its own distinct color palette./images - Contains all optimized portfolio imagery, mockups, and assets.🚀 How to Run LocallyBecause this project uses vanilla HTML, CSS, and JS with CDNs, there is no complex build step required!Clone the repository:git clone [https://github.com/jr-suraj/jr-suraj.github.io.git](https://github.com/jr-suraj/jr-suraj.github.io.git)
-Open the folder on your computer.Simply double-click index.html to open it in your default web browser.📫 ContactFeel free to reach out if you're interested in collaborating!Email: 100vermillion@gmail.comLocation: Chiang Mai, Thailand
+Suraj | UI/UX & Graphic Design Portfolio
+
+Welcome to the source code for my personal design portfolio! This website serves as a digital showcase of my 10+ years of experience in UI/UX design, brand identity, and front-end development.
+
+🌍 Live Demo: https://jr-suraj.github.io
+
+✨ Key Features
+
+This portfolio isn't just about showing images; it's built to provide a premium, immersive user experience:
+
+Custom Interactive Cursor: A dynamic ambient glow that tracks mouse movement and highlights interactive elements and text gradients.
+
+Seamless Dark/Light Mode: Full user-controlled theme toggling that remembers your preference and includes staggered "city lights" transition effects.
+
+Framer Motion Animations: Smooth, scroll-triggered reveal animations and cinematic title blurs.
+
+Dedicated Case Studies: In-depth project pages (like the Nakamura House) featuring interactive, CSS-coded mockups and brand guidelines.
+
+Fully Responsive: Pixel-perfect layouts across mobile, tablet, and desktop viewports.
+
+🛠️ Tech Stack
+
+Built from the ground up without heavy frameworks to ensure maximum performance and clean code:
+
+HTML5 & CSS3
+
+Tailwind CSS (via CDN for rapid styling and utility classes)
+
+JavaScript (ES6+)
+
+Framer Motion (via ESM for high-performance animations)
+
+Phosphor Icons & Devicons (for clean, scalable vector typography)
+
+📁 Repository Structure
+
+index.html - The main landing page featuring the hero section, about me, resume timeline, and project gallery.
+
+nakamura.html - A dedicated, deep-dive case study page for the "Nakamura House" branding project, customized with its own distinct color palette.
+
+/images - Contains all optimized portfolio imagery, mockups, and assets.
+
+🚀 How to Run Locally
+
+Because this project uses vanilla HTML, CSS, and JS with CDNs, there is no complex build step required!
+
+Clone the repository:
+
+git clone [https://github.com/jr-suraj/jr-suraj.github.io.git](https://github.com/jr-suraj/jr-suraj.github.io.git)
+
+
+Open the folder on your computer.
+
+Simply double-click index.html to open it in your default web browser.
+
+📫 Contact
+
+Feel free to reach out if you're interested in collaborating!
+
+Email: 100vermillion@gmail.com
+
+Location: Chiang Mai, Thailand
