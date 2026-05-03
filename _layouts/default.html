@@ -175,22 +175,34 @@
     <!-- ==========================================
          Footer
          ========================================== -->
-    <footer class="bg-slate-50 dark:bg-navy border-t border-black/10 dark:border-white/10 py-10 text-center transition-colors duration-500 js-scroll-anim opacity-0">
-        <div class="max-w-[1100px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-            <p class="text-slate-500 text-sm font-light">&copy; 2026 Suraj.</p>
-            <div class="flex gap-6 text-slate-400">
-                <a href="#" class="track-hover relative group grid place-items-center" aria-label="Twitter">
-                    <i class="ph ph-twitter-logo text-xl col-start-1 row-start-1 text-slate-400 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0"></i>
-                    <i class="ph ph-twitter-logo text-xl col-start-1 row-start-1 text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none" aria-hidden="true"></i>
-                </a>
-                <a href="#" class="track-hover relative group grid place-items-center" aria-label="LinkedIn">
-                    <i class="ph ph-linkedin-logo text-xl col-start-1 row-start-1 text-slate-400 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0"></i>
-                    <i class="ph ph-linkedin-logo text-xl col-start-1 row-start-1 text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none" aria-hidden="true"></i>
-                </a>
-                <a href="#" class="track-hover relative group grid place-items-center" aria-label="Instagram">
-                    <i class="ph ph-instagram-logo text-xl col-start-1 row-start-1 text-slate-400 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0"></i>
-                    <i class="ph ph-instagram-logo text-xl col-start-1 row-start-1 text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none" aria-hidden="true"></i>
-                </a>
+    <footer class="bg-slate-50 dark:bg-navy border-black/10 dark:border-white/10 py-10 text-center transition-colors duration-500 js-scroll-anim opacity-0">
+        <div class="max-w-[1100px] mx-auto px-6 flex flex-col items-center">
+
+             <!-- Back to top button -->
+            <button id="back-to-top" class="group flex flex-col items-center gap-3 text-orange transition-colors duration-300 mb-16 outline-none track-hover">
+                <div class="w-12 h-12 rounded-full border border-orange/30 dark:border-orange/30 flex items-center justify-center group-hover:border-orange transition-colors duration-300 bg-white dark:bg-surface shadow-sm">
+                    <i class="ph ph-arrow-up text-xl transition-transform duration-300 group-hover:-translate-y-1"></i>
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-widest">Back to top</span>
+            </button>
+
+            <!-- Copyright & Socials -->
+            <div class="w-full flex flex-col md:flex-row justify-between items-center gap-6 border-t border-black/5 dark:border-white/5 pt-8">
+                <p class="text-slate-500 text-sm font-light">&copy; 2026 Suraj.</p>
+                <div class="flex gap-6 text-slate-400">
+                    <a href="#" class="track-hover relative group grid place-items-center" aria-label="Twitter">
+                        <i class="ph ph-twitter-logo text-xl col-start-1 row-start-1 text-slate-400 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0"></i>
+                        <i class="ph ph-twitter-logo text-xl col-start-1 row-start-1 text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="track-hover relative group grid place-items-center" aria-label="LinkedIn">
+                        <i class="ph ph-linkedin-logo text-xl col-start-1 row-start-1 text-slate-400 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0"></i>
+                        <i class="ph ph-linkedin-logo text-xl col-start-1 row-start-1 text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="track-hover relative group grid place-items-center" aria-label="Instagram">
+                        <i class="ph ph-instagram-logo text-xl col-start-1 row-start-1 text-slate-400 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0"></i>
+                        <i class="ph ph-instagram-logo text-xl col-start-1 row-start-1 text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none" aria-hidden="true"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
@@ -423,6 +435,14 @@
                     }
                 });
             });
+
+            // 10. Back to Top Button
+            const backToTopBtn = document.getElementById('back-to-top');
+            if(backToTopBtn) {
+                backToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
 
         });
     </script>

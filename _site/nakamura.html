@@ -3,10 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suraj | Nakamura House</title>
     
+    <!-- Primary Meta Tags -->
+    <title>Suraj | Nakamura House</title>
+    <meta name="title" content="Suraj | Nakamura House">
+    <meta name="description" content="Freelance Brand, UI/UX Designer and Front-end Developer based in Chiang Mai, Thailand.">
+    <meta name="keywords" content="UI/UX Designer, Graphic Designer, Frontend Developer, Brand Identity, Portfolio">
+    <meta name="author" content="Suraj">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:4000/nakamura.html">
+    <meta property="og:title" content="Suraj | Nakamura House">
+    <meta property="og:description" content="Freelance Brand, UI/UX Designer and Front-end Developer based in Chiang Mai, Thailand.">
+    <meta property="og:image" content="http://localhost:4000/images/hero-thumbnail.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://localhost:4000/nakamura.html">
+    <meta property="twitter:title" content="Suraj | Nakamura House">
+    <meta property="twitter:description" content="Freelance Brand, UI/UX Designer and Front-end Developer based in Chiang Mai, Thailand.">
+    <meta property="twitter:image" content="http://localhost:4000/images/hero-thumbnail.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CN7DQWY40N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CN7DQWY40N');
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='%23fb923c' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='5,4 19,4 12,12' /%3E%3Cpolygon points='5,20 19,20 12,12' /%3E%3C/svg%3E">
+
     <!-- ==========================================
-         Theme Check Preflight
+         Theme Check Preflight (Prevents FOUC)
          ========================================== -->
     <script>
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -23,6 +55,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <!-- ==========================================
          Tailwind CSS Configuration
@@ -35,8 +68,7 @@
                 extend: {
                     colors: {
                         navy: '#1c2431',
-                        orange: '#fb923c', /* Restored global orange for UI consistency */
-                        nakamura: '#C42026', /* Kept for specific project branding elements */
+                        orange: '#fb923c',
                         surface: '#1e293b',
                     },
                     fontFamily: {
@@ -49,105 +81,66 @@
     </script>
 
     <!-- ==========================================
-         Custom CSS
+         Custom CSS (Cursor & Utilities)
          ========================================== -->
     <style>
         body { -webkit-font-smoothing: antialiased; }
-        
-        /* Custom Ambient Cursor Glow - Restored to Global Orange */
-        .custom-cursor {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle, rgba(251, 146, 60, 0.15) 0%, transparent 60%);
-            pointer-events: none;
-            z-index: 0;
-            transform: translate(-50%, -50%);
-            transition: width 0.5s ease, height 0.5s ease, opacity 0.3s ease;
-            will-change: transform, width, height;
-            opacity: 0; 
-        }
-
-        .custom-cursor.active-project {
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(251, 146, 60, 0.25) 0%, transparent 60%);
-        }
-
-        /* Menu Interactive Hover Gradient - Matches Global Style */
-        .menu-gradient-track {
-            background-image: radial-gradient(
-                circle 100px at var(--mouse-x, 50%) var(--mouse-y, 50%),
-                #fcd34d 0%,   /* Glowing Yellow-Orange */
-                #fb923c 40%,  /* Brand Orange */
-                #ea580c 100%  /* Deep Orange */
-            );
-            -webkit-background-clip: text;
-            background-clip: text;
-            background-repeat: no-repeat;
-        }
-
-        /* Solid Background Interactive Hover Gradient */
-        .bg-gradient-track {
-            background-image: radial-gradient(
-                circle 150px at var(--mouse-x, 50%) var(--mouse-y, 50%),
-                #fcd34d 0%,   
-                #fb923c 40%,  
-                #ea580c 100%  
-            );
-        }
-
-        .reveal-up {
-            animation: revealUpAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        @keyframes revealUpAnim {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .img-zoom-container { overflow: hidden; }
+        .img-zoom-container img { transition: transform 0.7s ease, filter 0.7s ease; }
+        .img-zoom-container:hover img { transform: scale(1.05); filter: grayscale(0); }
+        .custom-cursor { position: fixed; top: 0; left: 0; width: 150px; height: 150px; background: radial-gradient(circle, rgba(251, 146, 60, 0.15) 0%, transparent 60%); pointer-events: none; z-index: 0; transform: translate(-50%, -50%); transition: width 0.5s ease, height 0.5s ease, opacity 0.3s ease; will-change: transform, width, height; opacity: 0; }
+        .custom-cursor.active-project { width: 200px; height: 200px; background: radial-gradient(circle, rgba(251, 146, 60, 0.25) 0%, transparent 60%); }
+        .menu-gradient-track { background-image: radial-gradient(circle 100px at var(--mouse-x, 50%) var(--mouse-y, 50%), #fcd34d 0%, #fb923c 40%, #ea580c 100%); -webkit-background-clip: text; background-clip: text; background-repeat: no-repeat; }
+        .bg-gradient-track { background-image: radial-gradient(circle 150px at var(--mouse-x, 50%) var(--mouse-y, 50%), #fcd34d 0%, #fb923c 40%, #ea580c 100%); }
+        @keyframes float-abstract-1 { 0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); } 50% { transform: translateY(-20px) rotate(5deg) scale(1.05); } }
+        @keyframes float-abstract-2 { 0%, 100% { transform: translate(0px, 0px) scale(1); } 50% { transform: translate(-15px, 20px) scale(1.15); } }
+        .animate-abstract-1 { animation: float-abstract-1 8s ease-in-out infinite; }
+        .animate-abstract-2 { animation: float-abstract-2 6s ease-in-out infinite; }
+        .reveal-up { animation: revealUpAnim 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes revealUpAnim { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        .anti-flicker { -webkit-backface-visibility: hidden; backface-visibility: hidden; -webkit-transform: translateZ(0); transform: translateZ(0); }
+        .tool-logo { height: 38px; width: auto; max-width: 140px; object-fit: contain; will-change: transform; }
+        @media (min-width: 768px) { .tool-logo { height: 46px; max-width: 180px; } }
     </style>
 </head>
 <body class="font-sans bg-white dark:bg-navy text-slate-800 dark:text-slate-300 transition-colors duration-500 selection:bg-orange selection:text-white">
 
+    <!-- ==========================================
+         Global UI Elements
+         ========================================== -->
     <div id="custom-cursor" class="custom-cursor hidden md:block"></div>
 
-    <!-- ==========================================
-         Fullscreen Overlay Menu
-         ========================================== -->
     <div id="fullscreen-menu" class="fixed inset-0 z-[60] bg-white/90 dark:bg-black/90 backdrop-blur-2xl transition-all duration-700 ease-in-out opacity-0 pointer-events-none flex flex-col items-center justify-center">
         <nav class="flex flex-col gap-4 text-center items-center">
-            <a href="index.html#about" class="menu-link track-hover opacity-0 font-serif text-5xl md:text-7xl tracking-tight group grid place-items-center">
+            <a href="/#about" class="menu-link opacity-0 font-serif text-5xl md:text-7xl tracking-tight group grid place-items-center">
                 <span class="col-start-1 row-start-1 py-3 px-6 text-black dark:text-white transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0">About</span>
                 <span class="col-start-1 row-start-1 py-3 px-6 text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none" aria-hidden="true">About</span>
             </a>
-            <a href="index.html#resume" class="menu-link track-hover opacity-0 font-serif text-5xl md:text-7xl tracking-tight group grid place-items-center">
+            <a href="/#resume" class="menu-link opacity-0 font-serif text-5xl md:text-7xl tracking-tight group grid place-items-center">
                 <span class="col-start-1 row-start-1 py-3 px-6 text-black dark:text-white transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0">Resume</span>
                 <span class="col-start-1 row-start-1 py-3 px-6 text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none" aria-hidden="true">Resume</span>
             </a>
-            <a href="index.html#projects" class="menu-link track-hover opacity-0 font-serif text-5xl md:text-7xl tracking-tight group grid place-items-center">
+            <a href="/#projects" class="menu-link opacity-0 font-serif text-5xl md:text-7xl tracking-tight group grid place-items-center">
                 <span class="col-start-1 row-start-1 py-3 px-6 text-black dark:text-white transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0">Projects</span>
                 <span class="col-start-1 row-start-1 py-3 px-6 text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none" aria-hidden="true">Projects</span>
             </a>
-            <a href="index.html#contact" class="menu-link track-hover opacity-0 font-serif text-5xl md:text-7xl tracking-tight group grid place-items-center">
+            <a href="/#contact" class="menu-link opacity-0 font-serif text-5xl md:text-7xl tracking-tight group grid place-items-center">
                 <span class="col-start-1 row-start-1 py-3 px-6 text-black dark:text-white transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0">Contact</span>
                 <span class="col-start-1 row-start-1 py-3 px-6 text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none" aria-hidden="true">Contact</span>
             </a>
         </nav>
     </div>
 
-    <!-- ==========================================
-         Main Navigation Header
-         ========================================== -->
+    <!-- Main Navigation Header -->
     <header id="main-header" class="fixed top-0 left-0 w-full z-[70] bg-white/70 dark:bg-navy/70 backdrop-blur-xl border-b border-black/5 dark:border-white/5 transition-all duration-500">
         <div class="max-w-[1100px] mx-auto px-6 lg:px-8 h-20 flex items-center justify-between relative">
-            
-            <!-- Global Logo -->
-            <a href="index.html#home" class="flex items-center gap-2.5 track-hover group">
+            <a href="/#home" class="flex items-center gap-2.5 track-hover group">
+                <!-- Geometric Triangle Logo -->
                 <svg class="w-8 h-8 text-orange transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-180" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <polygon points="5,4 19,4 12,12" />
                     <polygon points="5,20 19,20 12,12" />
                 </svg>
+                <!-- Brand Text -->
                 <div class="font-serif text-2xl font-bold tracking-wide relative grid place-items-center">
                     <span class="col-start-1 row-start-1 text-black dark:text-white transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0">SURAJ.</span>
                     <span class="col-start-1 row-start-1 text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none" aria-hidden="true">SURAJ.</span>
@@ -176,7 +169,8 @@
         </div>
     </header>
 
-    <main class="pt-32 pb-24">
+    <!-- CONTENT INJECTED HERE BY JEKYLL -->
+        <main class="pt-32 pb-24">
         <div class="max-w-[1100px] mx-auto px-6 lg:px-8">
             
             <!-- Back to Projects Action -->
@@ -441,10 +435,15 @@
     <!-- ==========================================
          Footer
          ========================================== -->
-    <footer class="bg-slate-50 dark:bg-navy border-t border-black/10 dark:border-white/10 pt-16 pb-10 text-center transition-colors duration-500">
+
+
+    <!-- ==========================================
+         Footer
+         ========================================== -->
+    <footer class="bg-slate-50 dark:bg-navy border-black/10 dark:border-white/10 py-10 text-center transition-colors duration-500 js-scroll-anim opacity-0">
         <div class="max-w-[1100px] mx-auto px-6 flex flex-col items-center">
-            
-            <!-- Back to top button -->
+
+             <!-- Back to top button -->
             <button id="back-to-top" class="group flex flex-col items-center gap-3 text-orange transition-colors duration-300 mb-16 outline-none track-hover">
                 <div class="w-12 h-12 rounded-full border border-orange/30 dark:border-orange/30 flex items-center justify-center group-hover:border-orange transition-colors duration-300 bg-white dark:bg-surface shadow-sm">
                     <i class="ph ph-arrow-up text-xl transition-transform duration-300 group-hover:-translate-y-1"></i>
@@ -456,36 +455,65 @@
             <div class="w-full flex flex-col md:flex-row justify-between items-center gap-6 border-t border-black/5 dark:border-white/5 pt-8">
                 <p class="text-slate-500 text-sm font-light">&copy; 2026 Suraj.</p>
                 <div class="flex gap-6 text-slate-400">
-                    <a href="#" class="hover:text-orange transition-colors duration-300"><i class="ph ph-dribbble-logo text-xl"></i></a>
-                    <a href="#" class="hover:text-orange transition-colors duration-300"><i class="ph ph-behance-logo text-xl"></i></a>
-                    <a href="#" class="hover:text-orange transition-colors duration-300"><i class="ph ph-linkedin-logo text-xl"></i></a>
+                    <a href="#" class="track-hover relative group grid place-items-center" aria-label="Twitter">
+                        <i class="ph ph-twitter-logo text-xl col-start-1 row-start-1 text-slate-400 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0"></i>
+                        <i class="ph ph-twitter-logo text-xl col-start-1 row-start-1 text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="track-hover relative group grid place-items-center" aria-label="LinkedIn">
+                        <i class="ph ph-linkedin-logo text-xl col-start-1 row-start-1 text-slate-400 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0"></i>
+                        <i class="ph ph-linkedin-logo text-xl col-start-1 row-start-1 text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="track-hover relative group grid place-items-center" aria-label="Instagram">
+                        <i class="ph ph-instagram-logo text-xl col-start-1 row-start-1 text-slate-400 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0"></i>
+                        <i class="ph ph-instagram-logo text-xl col-start-1 row-start-1 text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
-            
         </div>
     </footer>
 
     <!-- ==========================================
-         Scripts
+         Unified Scripts (Framer Motion & Global UI Logic)
          ========================================== -->
     <script type="module">
         import { animate, stagger, inView } from "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm";
 
         document.addEventListener('DOMContentLoaded', () => {
 
-            // Title Blur Effect
+            // 1. Framer Motion: Premium Simple Blur In Title Effect
             const sectionTitles = document.querySelectorAll('.blur-in-title');
             sectionTitles.forEach(title => {
                 title.style.opacity = '0';
                 title.style.filter = 'blur(12px)';
                 title.style.transform = 'translateY(20px)';
-                
+                title.style.willChange = 'opacity, filter, transform';
+
                 inView(title, () => {
-                    animate(title, { opacity: [0, 1], filter: ["blur(12px)", "blur(0px)"], y: [20, 0] }, { duration: 1.4, ease: [0.16, 1, 0.3, 1] });
-                }, { amount: 0.5, once: true });
+                    animate(title, { opacity: [0, 1], filter: ["blur(12px)", "blur(0px)"], y: [20, 0] }, { delay: 0.3, duration: 1.4, ease: [0.16, 1, 0.3, 1] });
+                    return () => {
+                        title.style.opacity = '0';
+                        title.style.filter = 'blur(12px)';
+                        title.style.transform = 'translateY(20px)';
+                    };
+                }, { amount: 0.5, once: false });
             });
 
-            // Menu Overlay Toggle Logic
+            // 1.5 Framer Motion: Vertical Divider Line Drop Effect
+            const dividerLines = document.querySelectorAll('.js-divider-line');
+            dividerLines.forEach(line => {
+                inView(line, () => {
+                    animate(line, { scaleY: [0, 1], opacity: [0, 1] }, { delay: 0.6, duration: 1.2, ease: [0.16, 1, 0.3, 1] });
+                    return () => { line.style.transform = 'scaleY(0)'; line.style.opacity = '0'; };
+                }, { amount: 0.5, once: false });
+            });
+
+            // 2. Framer Motion: Project Cards Reveal Effect
+            inView("#projects", () => {
+                animate(".project-card", { opacity: [0, 1], y: [30, 0] }, { delay: stagger(0.15), duration: 1.2, ease: [0.16, 1, 0.3, 1] });
+                setTimeout(() => { document.querySelectorAll('.project-card').forEach(card => card.style.transform = ''); }, 1500);
+            }, { amount: 0.2 });
+
+            // 3. Fullscreen Menu Overlay Logic
             const menuToggleBtn = document.getElementById('menu-toggle');
             const menuOverlay = document.getElementById('fullscreen-menu');
             const menuLinks = document.querySelectorAll('.menu-link');
@@ -515,19 +543,64 @@
                     document.body.style.overflow = ''; 
                 }
             };
+
             menuToggleBtn.addEventListener('click', toggleMenu);
+            menuLinks.forEach(link => { link.addEventListener('click', () => { if (isMenuOpen) toggleMenu(); }); });
 
-            // Dark Mode Toggle
+            // 4. Project Filtering Logic
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('text-black', 'dark:text-white');
+                        b.classList.add('text-slate-500');
+                        b.querySelector('.underline-indicator').classList.replace('scale-100', 'scale-0');
+                    });
+                    btn.classList.add('text-black', 'dark:text-white');
+                    btn.classList.remove('text-slate-500');
+                    btn.querySelector('.underline-indicator').classList.replace('scale-0', 'scale-100');
+
+                    const filterValue = btn.getAttribute('data-filter');
+                    let delayCount = 0;
+
+                    projectCards.forEach(card => {
+                        const categories = card.getAttribute('data-category') || '';
+                        if (filterValue === 'all' || categories.includes(filterValue)) {
+                            card.style.display = 'grid'; 
+                            animate(card, { opacity: [0, 1], y: [20, 0] }, { delay: delayCount * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] });
+                            delayCount++;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // 5. Light/Dark Mode Theme Switcher
+            const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+            const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
             const themeToggleBtn = document.getElementById('theme-toggle');
-            const darkIcon = document.getElementById('theme-toggle-dark-icon');
-            const lightIcon = document.getElementById('theme-toggle-light-icon');
 
-            if (document.documentElement.classList.contains('dark')) lightIcon.classList.remove('hidden');
-            else darkIcon.classList.remove('hidden');
+            if (document.documentElement.classList.contains('dark')) {
+                themeToggleLightIcon.classList.remove('hidden');
+            } else {
+                themeToggleDarkIcon.classList.remove('hidden');
+            }
 
-            themeToggleBtn.addEventListener('click', () => {
-                darkIcon.classList.toggle('hidden');
-                lightIcon.classList.toggle('hidden');
+            themeToggleBtn.addEventListener('click', function() {
+                const colorElements = document.querySelectorAll('.transition-colors');
+                colorElements.forEach((el, index) => {
+                    const sequentialDelay = (index * 8) % 500;
+                    const randomJitter = Math.random() * 100;
+                    el.style.transitionDelay = `${sequentialDelay + randomJitter}ms`;
+                    el.style.transitionDuration = '200ms';
+                });
+
+                themeToggleDarkIcon.classList.toggle('hidden');
+                themeToggleLightIcon.classList.toggle('hidden');
+
                 if (document.documentElement.classList.contains('dark')) {
                     document.documentElement.classList.remove('dark');
                     localStorage.setItem('color-theme', 'light');
@@ -535,9 +608,17 @@
                     document.documentElement.classList.add('dark');
                     localStorage.setItem('color-theme', 'dark');
                 }
+
+                setTimeout(() => {
+                    colorElements.forEach(el => {
+                        el.style.transitionDelay = '';
+                        el.style.transitionDuration = '';
+                    });
+                }, 1000);
             });
 
-            // Scroll Reveal
+            // 6. Scroll Animations
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
             const scrollObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -546,30 +627,23 @@
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.15 });
+            }, observerOptions);
             document.querySelectorAll('.js-scroll-anim').forEach(el => scrollObserver.observe(el));
 
-            // Scroll Progress
+            // 7. Scroll Progress Bar Indicator
             const progressBar = document.getElementById('scroll-progress');
             window.addEventListener('scroll', () => {
                 const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
                 const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                if (docHeight > 0) progressBar.style.width = (winScroll / docHeight) * 100 + '%';
+                if (docHeight > 0 && progressBar) {
+                    progressBar.style.width = ((winScroll / docHeight) * 100) + '%';
+                }
             });
 
-            // Back to Top Button
-            const backToTopBtn = document.getElementById('back-to-top');
-            if(backToTopBtn) {
-                backToTopBtn.addEventListener('click', () => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-            }
-
-            // Custom Cursor
+            // 8. Custom Cursor Follower Logic
             const customCursor = document.getElementById('custom-cursor');
             if (window.matchMedia("(pointer: fine)").matches && customCursor) {
-                let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
-                let cursorX = mouseX, cursorY = mouseY;
+                let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2, cursorX = mouseX, cursorY = mouseY;
 
                 document.addEventListener('mousemove', (e) => {
                     mouseX = e.clientX; mouseY = e.clientY;
@@ -577,19 +651,11 @@
                 });
 
                 const renderCursor = () => {
-                    cursorX += (mouseX - cursorX) * 0.12;
-                    cursorY += (mouseY - cursorY) * 0.12;
+                    cursorX += (mouseX - cursorX) * 0.12; cursorY += (mouseY - cursorY) * 0.12;
                     customCursor.style.transform = `translate(calc(${cursorX}px - 50%), calc(${cursorY}px - 50%))`;
                     
-                    document.querySelectorAll('.track-hover:hover').forEach(link => {
-                        link.querySelectorAll('.menu-gradient-track').forEach(track => {
-                            const rect = track.getBoundingClientRect();
-                            track.style.setProperty('--mouse-x', `${cursorX - rect.left}px`);
-                            track.style.setProperty('--mouse-y', `${cursorY - rect.top}px`);
-                        });
-                        
-                        // Added solid background tracking
-                        link.querySelectorAll('.bg-gradient-track').forEach(track => {
+                    document.querySelectorAll('.menu-link:hover, .track-hover:hover').forEach(link => {
+                        link.querySelectorAll('.menu-gradient-track, .bg-gradient-track').forEach(track => {
                             const rect = track.getBoundingClientRect();
                             track.style.setProperty('--mouse-x', `${cursorX - rect.left}px`);
                             track.style.setProperty('--mouse-y', `${cursorY - rect.top}px`);
@@ -599,11 +665,50 @@
                 };
                 requestAnimationFrame(renderCursor);
 
-                document.querySelectorAll('a, button').forEach(el => {
+                document.querySelectorAll('a, button, .project-card, .filter-btn').forEach(el => {
                     el.addEventListener('mouseenter', () => customCursor.classList.add('active-project'));
                     el.addEventListener('mouseleave', () => customCursor.classList.remove('active-project'));
                 });
+            } else if (customCursor) {
+                customCursor.style.display = 'none'; 
             }
+
+            // 9. Web Share API Integration
+            const shareBtns = document.querySelectorAll('.js-share-btn');
+            shareBtns.forEach(btn => {
+                btn.addEventListener('click', async (e) => {
+                    e.preventDefault(); e.stopPropagation();
+                    const title = btn.getAttribute('data-share-title') || 'Suraj | Portfolio';
+                    const text = btn.getAttribute('data-share-text') || 'Check out this portfolio project!';
+                    const url = btn.getAttribute('data-share-url') || window.location.href;
+
+                    if (navigator.share) {
+                        try { await navigator.share({ title, text, url }); } catch (err) { console.log('Share canceled or failed'); }
+                    } else {
+                        try {
+                            const textArea = document.createElement("textarea");
+                            textArea.value = url;
+                            document.body.appendChild(textArea);
+                            textArea.select();
+                            document.execCommand("copy");
+                            document.body.removeChild(textArea);
+                            
+                            const originalHTML = btn.innerHTML;
+                            btn.innerHTML = `<span class="text-orange text-[10px] font-bold uppercase tracking-widest leading-none block">Copied!</span>`;
+                            setTimeout(() => { btn.innerHTML = originalHTML; }, 2000);
+                        } catch (err) { console.error('Failed to copy', err); }
+                    }
+                });
+            });
+
+            // 10. Back to Top Button
+            const backToTopBtn = document.getElementById('back-to-top');
+            if(backToTopBtn) {
+                backToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
         });
     </script>
 </body>
