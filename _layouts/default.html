@@ -199,7 +199,7 @@
 
         /* Tracking status text */
         .status {
-        position: absolute;
+        position: relative;
         bottom: 0;
         left: 0;
         color: rgba(0,255,255,0.7);
@@ -225,70 +225,46 @@
         display: block;
         }
 
-        /* duplicate layers */
+        /* Create two duplicate layers */
         .glitch::before,
         .glitch::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-
-        background-image: url("/images/blueprint-head.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-
-        opacity: 0.8;
-        mix-blend-mode: screen;
+            content: "";
+            position: absolute;
+            inset: 0;
+            /* IMPORTANT: Replace with your actual image path */
+            background-image: url("images/blueprint-head.png"); 
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.8;
+            mix-blend-mode: screen;
         }
 
-        /* cyan layer */
+        /* Cyan layer */
         .glitch::before {
-        transform: translate(3px, 0);
-        filter: hue-rotate(180deg);
-        animation: glitch1 4s infinite;
+            transform: translate(3px, 0);
+            filter: hue-rotate(180deg);
+            animation: glitch1 4s infinite;
         }
 
-        /* red layer */
+        /* Red layer */
         .glitch::after {
-        transform: translate(-3px, 0);
-        filter: hue-rotate(320deg);
-        animation: glitch2 5s infinite;
+            transform: translate(-3px, 0);
+            filter: hue-rotate(320deg);
+            animation: glitch2 5s infinite;
         }
 
+        /* Glitch Slicing Animations */
         @keyframes glitch1 {
-
-        0%, 90%, 100% {
-            clip-path: inset(0 0 0 0);
-            transform: translate(0);
-        }
-
-        92% {
-            clip-path: inset(10% 0 60% 0);
-            transform: translate(10px, -5px);
-        }
-
-        94% {
-            clip-path: inset(70% 0 5% 0);
-            transform: translate(-8px, 4px);
-        }
+            0%, 90%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+            92% { clip-path: inset(10% 0 60% 0); transform: translate(10px, -5px); }
+            94% { clip-path: inset(70% 0 5% 0); transform: translate(-8px, 4px); }
         }
 
         @keyframes glitch2 {
-
-        0%, 90%, 100% {
-            clip-path: inset(0 0 0 0);
-            transform: translate(0);
-        }
-
-        91% {
-            clip-path: inset(40% 0 20% 0);
-            transform: translate(-10px, 3px);
-        }
-
-        95% {
-            clip-path: inset(5% 0 75% 0);
-            transform: translate(8px, -2px);
-        }
+            0%, 90%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+            91% { clip-path: inset(40% 0 20% 0); transform: translate(-10px, 3px); }
+            95% { clip-path: inset(5% 0 75% 0); transform: translate(8px, -2px); }
         }
     </style>
 </head>
@@ -651,6 +627,6 @@
 
         });
     </script>
-    <script type="module" src="/blueprint-head.js"></script>
+    <!-- <script type="module" src="/blueprint-head.js"></script> -->
 </body>
 </html>
