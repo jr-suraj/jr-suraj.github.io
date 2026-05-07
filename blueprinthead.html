@@ -1,0 +1,274 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blueprint Hologram Head</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      overflow: hidden;
+      background: transparent;
+    }
+
+    canvas {
+      display: block;
+    }
+
+    /* Scanline overlay */
+    .scanline {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,255,255,0),
+        rgba(0,255,255,0.18),
+        rgba(0,255,255,0)
+      );
+      height: 220px;
+      width: 100%;
+      animation: scan 3.5s linear infinite;
+      pointer-events: none;
+      opacity: 0.55;
+      mix-blend-mode: screen;
+    }
+
+    @keyframes scan {
+      0% {
+        transform: translateY(-250px);
+      }
+      100% {
+        transform: translateY(120vh);
+      }
+    }
+
+    /* Noise flicker */
+    .noise {
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-radial-gradient(
+          circle at center,
+          rgba(255,255,255,0.03) 0,
+          rgba(255,255,255,0.03) 1px,
+          transparent 1px,
+          transparent 2px
+        );
+      opacity: 0.08;
+      animation: flicker 0.12s infinite;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 0.05; }
+      50% { opacity: 0.10; }
+      100% { opacity: 0.06; }
+    }
+
+    /* Tracking status text */
+    .status {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+      color: rgba(0,255,255,0.7);
+      font-family: monospace;
+      font-size: 14px;
+      line-height: 1.8;
+      text-shadow: 0 0 10px rgba(0,255,255,0.4);
+      pointer-events: none;
+      animation: textFlicker 1.5s infinite alternate;
+    }
+
+    @keyframes textFlicker {
+      0% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="scanline"></div>
+  <div class="noise"></div>
+
+  <div class="status">
+    STATUS: ONLINE<br>
+    TRACKING: ACTIVE<br>
+    SIGNAL: STABLE<br>
+    MODE: HOLOGRAM
+  </div>
+
+  <script type="module">
+    import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
+
+    const scene = new THREE.Scene();
+
+    const camera = new THREE.PerspectiveCamera(
+      45,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      100
+    );
+
+    camera.position.z = 4;
+
+    // Transparent renderer
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true
+    });
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 0);
+
+    document.body.appendChild(renderer.domElement);
+
+    // Load blueprint image
+    const loader = new THREE.TextureLoader();
+
+    const texture = loader.load("images/blueprint-head.png");
+
+    texture.minFilter = THREE.LinearFilter;
+
+    // Geometry
+    const geometry = new THREE.PlaneGeometry(4, 3);
+
+    // Main material
+    const mainMaterial = new THREE.MeshBasicMaterial({
+      map: texture,
+      transparent: true,
+      opacity: 1
+    });
+
+    // Glow material
+    const glowMaterial = new THREE.MeshBasicMaterial({
+      map: texture,
+      transparent: true,
+      opacity: 0.5,
+      blending: THREE.AdditiveBlending
+    });
+
+    // Depth material
+    const depthMaterial = new THREE.MeshBasicMaterial({
+      map: texture,
+      transparent: true,
+      opacity: 0.12,
+      blending: THREE.AdditiveBlending
+    });
+
+    // Main layer
+    const headMain = new THREE.Mesh(geometry, mainMaterial);
+    scene.add(headMain);
+
+    // Glow layers
+    const headGlow1 = new THREE.Mesh(geometry, glowMaterial);
+    headGlow1.position.z = -0.05;
+    headGlow1.scale.set(1.08, 1.08, 1);
+    scene.add(headGlow1);
+
+    const headGlow2 = new THREE.Mesh(geometry, glowMaterial);
+    headGlow2.position.z = -0.12;
+    headGlow2.scale.set(1.15, 1.15, 1);
+    scene.add(headGlow2);
+
+    // Fake depth layer
+    const headDepth = new THREE.Mesh(geometry, depthMaterial);
+    headDepth.position.z = -0.2;
+    headDepth.scale.set(1.22, 1.22, 1);
+    scene.add(headDepth);
+
+    // Glitch timing
+    let glitchTime = 0;
+    let nextGlitch = Math.random() * 4000 + 4000;
+    let glitching = false;
+
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+
+      const t = Date.now() * 0.001;
+      const now = performance.now();
+
+      // Floating motion
+      // const floatY = Math.sin(t * 1.2) * 0.06;
+
+      // headMain.position.y = floatY;
+      // headGlow1.position.y = floatY;
+      // headGlow2.position.y = floatY;
+      // headDepth.position.y = floatY;
+
+      // Shimmer distortion
+      const shimmer = 1 + Math.sin(t * 6) * 0.008;
+      headMain.scale.set(shimmer, shimmer, 1);
+
+      // Glow pulse
+      headGlow1.material.opacity = 0.25 + Math.sin(t * 2.5) * 0.08;
+      headGlow2.material.opacity = 0.15 + Math.sin(t * 3.0) * 0.06;
+
+      // Random glitch trigger
+      if (now - glitchTime > nextGlitch) {
+        glitching = true;
+        glitchTime = now;
+        nextGlitch = Math.random() * 4000 + 4000;
+
+        setTimeout(() => {
+          glitching = false;
+        }, 120);
+      }
+
+      // Glitch animation
+      if (glitching) {
+
+        const jumpX = (Math.random() - 0.5) * 0.25;
+        const jumpY = (Math.random() - 0.5) * 0.18;
+
+        headMain.position.x = jumpX;
+        headGlow1.position.x = jumpX * 1.5;
+        headGlow2.position.x = jumpX * -1.2;
+        headDepth.position.x = jumpX * 0.6;
+
+        headMain.position.y += jumpY;
+
+        // Flicker opacity
+        headMain.material.opacity = 0.7 + Math.random() * 0.3;
+
+        // Stretch distortion
+        const sx = 1 + Math.random() * 0.08;
+        const sy = 1 - Math.random() * 0.05;
+
+        headMain.scale.set(sx, sy, 1);
+      }
+      else {
+        // Smooth reset
+        headMain.position.x *= 0.85;
+        headGlow1.position.x *= 0.85;
+        headGlow2.position.x *= 0.85;
+        headDepth.position.x *= 0.85;
+
+        headMain.material.opacity = 1;
+      }
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Resize support
+    window.addEventListener("resize", () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>
+```

@@ -142,6 +142,154 @@
         .glow-chip:hover::before {
             opacity: 1;
         }
+        canvas {
+      display: block;
+    }
+
+    /* Scanline overlay */
+    .scanline {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,255,255,0),
+        rgba(0,255,255,0.18),
+        rgba(0,255,255,0)
+      );
+      height: 220px;
+      width: 100%;
+      animation: scan 3.5s linear infinite;
+      pointer-events: none;
+      opacity: 0.55;
+      mix-blend-mode: screen;
+    }
+
+    @keyframes scan {
+      0% {
+        transform: translateY(-250px);
+      }
+      100% {
+        transform: translateY(120vh);
+      }
+    }
+
+    /* Noise flicker */
+    .noise {
+      position: relative;
+      inset: 0;
+      background-image:
+        repeating-radial-gradient(
+          circle at center,
+          rgba(255,255,255,0.03) 0,
+          rgba(255,255,255,0.03) 1px,
+          transparent 1px,
+          transparent 2px
+        );
+        opacity: 0.08;
+        animation: flicker 0.12s infinite;
+        mix-blend-mode: screen;
+        pointer-events: none;
+        }
+
+        @keyframes flicker {
+        0% { opacity: 0.05; }
+        50% { opacity: 0.10; }
+        100% { opacity: 0.06; }
+        }
+
+        /* Tracking status text */
+        .status {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        color: rgba(0,255,255,0.7);
+        font-family: monospace;
+        font-size: 14px;
+        line-height: 1.8;
+        text-shadow: 0 0 10px rgba(0,255,255,0.4);
+        pointer-events: none;
+        animation: textFlicker 1.5s infinite alternate;
+        }
+
+        @keyframes textFlicker {
+        0% { opacity: 0.7; }
+        100% { opacity: 1; }
+        }
+        .glitch {
+        position: relative;
+        width: 50vw;
+        }
+
+        .glitch img {
+        width: 100%;
+        display: block;
+        }
+
+        /* duplicate layers */
+        .glitch::before,
+        .glitch::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        background-image: url("/images/blueprint-head.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        opacity: 0.8;
+        mix-blend-mode: screen;
+        }
+
+        /* cyan layer */
+        .glitch::before {
+        transform: translate(3px, 0);
+        filter: hue-rotate(180deg);
+        animation: glitch1 4s infinite;
+        }
+
+        /* red layer */
+        .glitch::after {
+        transform: translate(-3px, 0);
+        filter: hue-rotate(320deg);
+        animation: glitch2 5s infinite;
+        }
+
+        @keyframes glitch1 {
+
+        0%, 90%, 100% {
+            clip-path: inset(0 0 0 0);
+            transform: translate(0);
+        }
+
+        92% {
+            clip-path: inset(10% 0 60% 0);
+            transform: translate(10px, -5px);
+        }
+
+        94% {
+            clip-path: inset(70% 0 5% 0);
+            transform: translate(-8px, 4px);
+        }
+        }
+
+        @keyframes glitch2 {
+
+        0%, 90%, 100% {
+            clip-path: inset(0 0 0 0);
+            transform: translate(0);
+        }
+
+        91% {
+            clip-path: inset(40% 0 20% 0);
+            transform: translate(-10px, 3px);
+        }
+
+        95% {
+            clip-path: inset(5% 0 75% 0);
+            transform: translate(8px, -2px);
+        }
+        }
     </style>
 </head>
 <body class="font-sans bg-white dark:bg-navy text-slate-800 dark:text-slate-300 transition-colors duration-500 selection:bg-orange selection:text-white">
@@ -275,9 +423,9 @@
                         <div class="absolute -bottom-8 -left-8 md:-left-12 w-48 h-48 md:w-56 md:h-56 bg-teal-500 rounded-t-full rounded-bl-full z-0 transition-colors duration-500 animate-abstract-1"></div>
                         <div class="absolute top-1/4 -right-6 w-16 h-16 bg-orange rounded-full z-0 animate-abstract-2"></div>
 
-                        <div class="relative w-full h-full rounded-full rounded-b-2xl overflow-hidden z-10">
-                            <img src="images/Suraj.png" alt="Suraj" class="w-full h-full object-cover grayscale transition-all duration-500">
-                            <div class="absolute inset-0 bg-black/10 transition-colors duration-500"></div>
+                        <div class="relative w-full h-full rounded-full overflow-hidden z-10">
+                            <img src="images/suraj_profile.png" alt="Suraj" class="w-full h-full object-cover grayscale transition-all duration-500">
+                            <!-- <div class="absolute inset-0 bg-black/10 transition-colors duration-500"></div> -->
                         </div>
                     </div>
                 </div>
@@ -307,45 +455,10 @@
         </section>
 
         <!-- ==========================================
-             SECTION: About Me
-             ========================================== -->
+         SECTION: About Me
+         ========================================== -->
         <section id="about" class="py-32 relative overflow-hidden border-t border-black/10 dark:border-white/10 transition-colors duration-500">
-            <!-- Decorative Background Elements -->
-            <div class="absolute bottom-10 left-0 z-0 pointer-events-none opacity-70 dark:opacity-40 transition-opacity duration-500 transform -translate-x-4 translate-y-4 hidden sm:block">
-                <div class="relative w-56 h-56">
-                    <!-- Clean Wavy Lines -->
-                    <svg class="absolute top-8 left-8 w-20 h-20 stroke-[#2bc4cb] animate-abstract-2" style="animation-delay: -2s;" viewBox="0 0 100 100" fill="none">
-                        <path d="M 0 30 Q 15 10 30 30 T 60 30 T 90 30" stroke-width="4" stroke-linecap="round"/>
-                        <path d="M 0 50 Q 15 30 30 50 T 60 50 T 90 50" stroke-width="4" stroke-linecap="round"/>
-                        <path d="M 0 70 Q 15 50 30 70 T 60 70 T 90 70" stroke-width="4" stroke-linecap="round"/>
-                    </svg>
-                    
-                    <!-- Tilted Hollow Square -->
-                    <div class="absolute bottom-12 left-28 w-12 h-12 border-[3px] border-orange rotate-[15deg] animate-abstract-1" style="animation-direction: reverse; animation-delay: -0.5s;"></div>
-                    
-                    <!-- Solid Tiny Accent Circle -->
-                    <div class="absolute top-6 left-36 w-5 h-5 rounded-full bg-[#7b61ff] animate-abstract-2" style="animation-delay: -1.5s;"></div>
-                </div>
-            </div>
-
-            <div class="absolute bottom-0 right-0 z-0 pointer-events-none opacity-70 dark:opacity-40 transition-opacity duration-500 transform translate-x-4 translate-y-4 hidden sm:block">
-                <div class="relative w-56 h-56">
-                    <!-- 4-Point Sparkle / Star -->
-                    <svg class="absolute top-8 right-24 w-12 h-12 text-orange animate-abstract-1" style="animation-delay: -1s;" viewBox="0 0 100 100" fill="currentColor">
-                        <path d="M50 0 C50 40 60 50 100 50 C60 50 50 60 50 100 C50 60 40 50 0 50 C40 50 50 40 50 0 Z" />
-                    </svg>
-                    
-                    <!-- Geometric Half-Circle -->
-                    <div class="absolute bottom-20 right-32 w-14 h-7 bg-[#2bc4cb] rounded-t-full animate-abstract-2" style="animation-direction: reverse;"></div>
-                    
-                    <!-- Hollow Wireframe Triangle -->
-                    <svg class="absolute bottom-8 right-8 w-16 h-16 stroke-[#7b61ff] animate-abstract-1 overflow-visible" style="animation-delay: -2.5s;" viewBox="0 0 100 100" fill="none">
-                        <polygon points="50,15 90,85 10,85" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </div>
-
-            <div class="max-w-[1000px] mx-auto px-6 lg:px-8 relative z-10">
+            <div class="max-w-[1100px] mx-auto px-6 lg:px-8 relative z-10">
                 <!-- Section Header -->
                 <div class="mb-20 flex flex-col items-center text-center">
                     <h2 class="font-serif text-6xl md:text-[5.5rem] leading-none tracking-tight text-black dark:text-white transition-colors duration-500 mb-8 blur-in-title">About Me</h2>
@@ -355,28 +468,25 @@
                     </p>
                 </div>
                 
-                <div class="flex flex-col md:flex-row gap-12 md:gap-0 items-stretch js-scroll-anim opacity-0">
-                    <!-- Left: Stats -->
-                    <div class="md:w-[30%] flex flex-col items-end text-right pr-0 md:pr-12 md:border-r border-black/20 dark:border-white/40 transition-colors duration-500 space-y-12">
-                        <div class="flex flex-col items-end">
-                            <i class="ph ph-check-circle text-[28px] text-orange mb-3"></i>
-                            <span class="text-4xl md:text-[2.5rem] leading-none font-bold text-black dark:text-white transition-colors duration-500 tracking-tight">124</span>
-                            <span class="text-sm text-slate-500 dark:text-slate-400 mt-2 leading-snug">Completed<br>Project</span>
+                <div class="flex flex-col md:flex-row gap-16 md:gap-0 items-center md:items-stretch js-scroll-anim opacity-0">
+                    
+                    <!-- Left: Flat Vector Bauhaus Shape Library (Black Background Poster Style) -->
+                    <div class="md:w-[45%] flex flex-col items-center  md:pr-12 transition-colors duration-500 w-full min-h-[500px] pb-8">
+                       <!-- <div class="scanline"></div> -->
+                        <div class="noise"></div>
+                        <div class="glitch">
+                        <img src="images/blueprint-head.png" alt="">
                         </div>
-                        <div class="flex flex-col items-end">
-                            <i class="ph ph-smiley text-[28px] text-orange mb-3"></i>
-                            <span class="text-4xl md:text-[2.5rem] leading-none font-bold text-black dark:text-white transition-colors duration-500 tracking-tight">65</span>
-                            <span class="text-sm text-slate-500 dark:text-slate-400 mt-2 leading-snug">Happy<br>Clients</span>
-                        </div>
-                        <div class="flex flex-col items-end">
-                            <i class="ph ph-diamond text-[28px] text-orange mb-3"></i>
-                            <span class="text-4xl md:text-[2.5rem] leading-none font-bold text-black dark:text-white transition-colors duration-500 tracking-tight">18</span>
-                            <span class="text-sm text-slate-500 dark:text-slate-400 mt-2 leading-snug">Awards<br>Won</span>
+                        <div class="status">
+                        STATUS: ONLINE<br>
+                        TRACKING: ACTIVE<br>
+                        SIGNAL: STABLE<br>
+                        MODE: HOLOGRAM
                         </div>
                     </div>
 
                     <!-- Right: Bio -->
-                    <div class="md:w-[70%] pl-0 md:pl-12 flex flex-col justify-between py-2">
+                    <div class="md:w-[55%] md:pl-12 flex flex-col justify-between py-2 text-left">
                         <div class="text-slate-700 dark:text-slate-300 font-light text-[15px] md:text-lg leading-[1.8] space-y-6 transition-colors duration-500">
                             <p>Hello! I'm Suraj, a Graphic Designer, UI/UX Designer, and Video Editor based in Chiang Mai, Thailand. With over 10 years of experience, I focus on turning complex ideas into clean, user-friendly designs.</p>
                             <p>Because my journey started in web development, I bridge the gap between design and code. I don't just create visuals that look good; I design practical, scalable experiences that developers can easily bring to life.</p>
@@ -389,37 +499,26 @@
                                 <i class="ph ph-star-four text-orange"></i> When I'm Not Designing
                             </h4>
                             <div class="flex flex-wrap gap-3">
-                                <!-- Nature (Emerald) -->
                                 <div class="flex items-center gap-2 px-4 py-2 bg-transparent hover:bg-emerald-50 dark:hover:bg-emerald-500/10 rounded-xl transition-all duration-300 hover:-translate-y-1 cursor-default group">
                                     <i class="ph ph-leaf text-lg text-emerald-500 dark:text-emerald-400"></i>
                                     <span class="text-sm font-medium text-emerald-700 dark:text-emerald-300">Nature</span>
                                 </div>
-                                
-                                <!-- Art (Rose) -->
                                 <div class="flex items-center gap-2 px-4 py-2 bg-transparent hover:bg-rose-50 dark:hover:bg-rose-500/10 rounded-xl transition-all duration-300 hover:-translate-y-1 cursor-default group">
                                     <i class="ph ph-palette text-lg text-rose-500 dark:text-rose-400"></i>
                                     <span class="text-sm font-medium text-rose-700 dark:text-rose-300">Art</span>
                                 </div>
-                                
-                                <!-- Hiking (Amber) -->
                                 <div class="flex items-center gap-2 px-4 py-2 bg-transparent hover:bg-amber-50 dark:hover:bg-amber-500/10 rounded-xl transition-all duration-300 hover:-translate-y-1 cursor-default group">
                                     <i class="ph ph-mountains text-lg text-amber-500 dark:text-amber-400"></i>
                                     <span class="text-sm font-medium text-amber-700 dark:text-amber-300">Hiking</span>
                                 </div>
-                                
-                                <!-- Biking (Sky Blue) -->
                                 <div class="flex items-center gap-2 px-4 py-2 bg-transparent hover:bg-sky-50 dark:hover:bg-sky-500/10 rounded-xl transition-all duration-300 hover:-translate-y-1 cursor-default group">
                                     <i class="ph ph-bicycle text-lg text-sky-500 dark:text-sky-400"></i>
                                     <span class="text-sm font-medium text-sky-700 dark:text-sky-300">Biking</span>
                                 </div>
-                                
-                                <!-- Cooking (Orange) -->
                                 <div class="flex items-center gap-2 px-4 py-2 bg-transparent hover:bg-orange-50 dark:hover:bg-orange-500/10 rounded-xl transition-all duration-300 hover:-translate-y-1 cursor-default group">
                                     <i class="ph ph-cooking-pot text-lg text-orange-500 dark:text-orange-400"></i>
                                     <span class="text-sm font-medium text-orange-700 dark:text-orange-300">Cooking</span>
                                 </div>
-                                
-                                <!-- Archi & Landscape (Violet) -->
                                 <div class="flex items-center gap-2 px-4 py-2 bg-transparent hover:bg-violet-50 dark:hover:bg-violet-500/10 rounded-xl transition-all duration-300 hover:-translate-y-1 cursor-default group">
                                     <i class="ph ph-buildings text-lg text-violet-500 dark:text-violet-400"></i>
                                     <span class="text-sm font-medium text-violet-700 dark:text-violet-300">Archi & Landscape</span>
@@ -427,8 +526,8 @@
                             </div>
                         </div>
                         
-                        <div class="mt-12">
-                            <a href="images/Suraj-One%20Page%20Resume%20(Design)-01.jpg" download="Suraj-CV" class="relative overflow-hidden bg-orange/90 text-white px-8 py-3.5 rounded-lg text-sm font-bold tracking-wide shadow-lg inline-flex items-center justify-center track-hover group hover:-translate-y-1 transition-all duration-300">
+                        <div class="mt-10">
+                            <a href="images/Suraj-One%20Page%20Resume%20(Design)-01.jpg" download="Suraj-CV" class="relative overflow-hidden bg-orange/90 text-white px-8 py-3.5 rounded-lg text-sm font-bold tracking-wide shadow-lg inline-flex items-center justify-center track-hover group hover:-translate-y-1 transition-all duration-300 w-fit">
                                 <div class="absolute inset-0 opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 bg-gradient-track pointer-events-none"></div>
                                 <span class="relative z-10 text-white transition-colors duration-[1000ms]">Download CV</span>
                             </a>
@@ -1170,5 +1269,6 @@
 
         });
     </script>
+    <script type="module" src="/blueprint-head.js"></script>
 </body>
 </html>
