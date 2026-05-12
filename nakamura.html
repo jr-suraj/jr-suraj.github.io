@@ -17,7 +17,7 @@ title: Suraj | Nakamura House
 
             <!-- Project Title Section -->
             <div class="mb-16 mt-4 flex flex-col items-center text-center">
-                <p class="text-orange text-sm md:text-base uppercase tracking-widest font-bold mb-6 transition-colors duration-500 blur-in-title">Branding & Photography</p>
+                <p class="text-orange text-sm md:text-base uppercase tracking-widest font-bold mb-6 transition-colors duration-500 blur-in-title">Branding & UI/UX</p>
                 <h1 class="font-serif text-6xl md:text-[6.5rem] leading-none tracking-tight text-black dark:text-white transition-colors duration-500 mb-8 blur-in-title">Nakamura House</h1>
             </div>
 
@@ -65,46 +65,73 @@ title: Suraj | Nakamura House
                 </div>
 
                 <div class="flex flex-col gap-24 md:gap-32">
-                    <!-- Color Palette -->
-                    <div>
-                        <h4 class="text-sm uppercase tracking-widest text-orange font-bold mb-10 border-b border-black/5 dark:border-white/5 pb-4 transition-colors duration-500">Color Palette</h4>
-                        
-                        <!-- Fixed size circles mapped perfectly into columns -->
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 md:gap-12">
+                    <!-- Color Palette (Rounded-Rectangles with Swatches) -->
+                    <div class="mb-24 js-scroll-anim opacity-0">
+                        <h4 class="text-xs font-bold text-orange uppercase tracking-widest mb-8">Color Palette</h4>
+                        <div class="flex flex-wrap items-center justify-start gap-8 md:gap-12">
+                            
                             <!-- Color 1: Nakamura Red -->
-                            <div class="flex flex-col gap-4 group text-center">
-                                <div class="w-20 md:w-24 aspect-square mx-auto rounded-full bg-[#C42026] shadow-md transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-xl group-hover:shadow-[#C42026]/30"></div>
-                                <div>
-                                    <div class="text-[13px] font-bold text-black dark:text-white transition-colors duration-500 mb-1">Nakamura Red</div>
-                                    <div class="text-xs text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">#C42026</div>
+                            <div class="group text-center w-32 md:w-40">
+                                <div class="w-full aspect-square rounded-2xl overflow-hidden shadow-md mb-4 bg-[#C01A22] transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-lg mx-auto flex flex-col border border-black/5 dark:border-white/5">
+                                    <div class="flex-1 w-full bg-[#C01A22]"></div>
+                                    <div class="flex flex-1 w-full">
+                                        <div class="flex-1 bg-[#F3D1D3]" title="Lightest"></div>
+                                        <div class="flex-1 bg-[#DA5E64]" title="Light"></div>
+                                        <div class="flex-1 bg-[#C01A22]" title="Base"></div>
+                                        <div class="flex-1 bg-[#8A1318]" title="Dark"></div>
+                                        <div class="flex-1 bg-[#550B0F]" title="Darkest"></div>
+                                    </div>
                                 </div>
+                                <span class="block text-sm font-bold text-black dark:text-white transition-colors duration-500">Nakamura Red</span>
+                                <span class="block text-xs text-slate-500 font-mono mt-1 transition-colors duration-500">#C01A22</span>
                             </div>
                             
-                            <!-- Color 2: Slate Black -->
-                            <div class="flex flex-col gap-4 group text-center">
-                                <div class="w-20 md:w-24 aspect-square mx-auto rounded-full bg-[#222222] shadow-md transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-xl group-hover:shadow-[#222222]/30"></div>
-                                <div>
-                                    <div class="text-[13px] font-bold text-black dark:text-white transition-colors duration-500 mb-1">Slate Black</div>
-                                    <div class="text-xs text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">#222222</div>
+                            <!-- Color 2: Charcoal Black -->
+                            <div class="group text-center w-32 md:w-40">
+                                <div class="w-full aspect-square rounded-2xl overflow-hidden shadow-md mb-4 bg-[#1A1A1A] transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-lg mx-auto flex flex-col border border-black/5 dark:border-white/5">
+                                    <div class="flex-1 w-full bg-[#1A1A1A]"></div>
+                                    <div class="flex flex-1 w-full">
+                                        <div class="flex-1 bg-[#666666]" title="Lightest"></div>
+                                        <div class="flex-1 bg-[#404040]" title="Light"></div>
+                                        <div class="flex-1 bg-[#1A1A1A]" title="Base"></div>
+                                        <div class="flex-1 bg-[#0D0D0D]" title="Dark"></div>
+                                        <div class="flex-1 bg-[#000000]" title="Darkest"></div>
+                                    </div>
                                 </div>
+                                <span class="block text-sm font-bold text-black dark:text-white transition-colors duration-500">Charcoal</span>
+                                <span class="block text-xs text-slate-500 font-mono mt-1 transition-colors duration-500">#1A1A1A</span>
                             </div>
                             
-                            <!-- Color 3: Timber Wood -->
-                            <div class="flex flex-col gap-4 group text-center">
-                                <div class="w-20 md:w-24 aspect-square mx-auto rounded-full bg-[#7A5240] shadow-md transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-xl group-hover:shadow-[#7A5240]/30"></div>
-                                <div>
-                                    <div class="text-[13px] font-bold text-black dark:text-white transition-colors duration-500 mb-1">Timber Wood</div>
-                                    <div class="text-xs text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">#7A5240</div>
+                            <!-- Color 3: Warm Brown -->
+                            <div class="group text-center w-32 md:w-40">
+                                <div class="w-full aspect-square rounded-2xl overflow-hidden shadow-md mb-4 bg-[#795A46] transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-lg mx-auto flex flex-col border border-black/5 dark:border-white/5">
+                                    <div class="flex-1 w-full bg-[#795A46]"></div>
+                                    <div class="flex flex-1 w-full">
+                                        <div class="flex-1 bg-[#D7C8BD]" title="Lightest"></div>
+                                        <div class="flex-1 bg-[#A88A77]" title="Light"></div>
+                                        <div class="flex-1 bg-[#795A46]" title="Base"></div>
+                                        <div class="flex-1 bg-[#553F31]" title="Dark"></div>
+                                        <div class="flex-1 bg-[#30241C]" title="Darkest"></div>
+                                    </div>
                                 </div>
+                                <span class="block text-sm font-bold text-black dark:text-white transition-colors duration-500">Warm Brown</span>
+                                <span class="block text-xs text-slate-500 font-mono mt-1 transition-colors duration-500">#795A46</span>
                             </div>
                             
-                            <!-- Color 4: Facade White -->
-                            <div class="flex flex-col gap-4 group text-center">
-                                <div class="w-20 md:w-24 aspect-square mx-auto rounded-full bg-[#F2F4F3] border border-black/5 dark:border-white/10 shadow-sm transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-xl"></div>
-                                <div>
-                                    <div class="text-[13px] font-bold text-black dark:text-white transition-colors duration-500 mb-1">Facade White</div>
-                                    <div class="text-xs text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">#F2F4F3</div>
+                            <!-- Color 4: Pure White -->
+                            <div class="group text-center w-32 md:w-40">
+                                <div class="w-full aspect-square rounded-2xl overflow-hidden shadow-md mb-4 bg-[#FFFFFF] transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-lg mx-auto flex flex-col border border-black/10 dark:border-white/10">
+                                    <div class="flex-1 w-full bg-[#FFFFFF]"></div>
+                                    <div class="flex flex-1 w-full border-t border-black/5 dark:border-white/5">
+                                        <div class="flex-1 bg-[#FFFFFF]" title="Lightest"></div>
+                                        <div class="flex-1 bg-[#FAFAFA]" title="Light"></div>
+                                        <div class="flex-1 bg-[#FFFFFF]" title="Base"></div>
+                                        <div class="flex-1 bg-[#EBEBEB]" title="Dark"></div>
+                                        <div class="flex-1 bg-[#CCCCCC]" title="Darkest"></div>
+                                    </div>
                                 </div>
+                                <span class="block text-sm font-bold text-black dark:text-white transition-colors duration-500">Pure White</span>
+                                <span class="block text-xs text-slate-500 font-mono mt-1 transition-colors duration-500">#FFFFFF</span>
                             </div>
                         </div>
                     </div>
@@ -185,7 +212,7 @@ title: Suraj | Nakamura House
                         </div>
                     </div>
                 </div>
-            </div>
+            
 
             <!-- Brand Applications Section -->
             <div class="mt-32 mb-32 border-t border-black/10 dark:border-white/10 pt-24 opacity-0 js-scroll-anim transition-colors duration-500">
@@ -200,7 +227,7 @@ title: Suraj | Nakamura House
                     <!-- Application: Stationery -->
                     <div class="group">
                         <div class="w-full aspect-[4/3] md:aspect-video rounded-xl overflow-hidden mb-8 bg-slate-50 dark:bg-surface border border-black/5 dark:border-white/5">
-                            <img src="images/nakamura-office-mockup.png" alt="Digital Mockup" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 filter grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100">
+                            <img src="images/nakamura-office-mockup.png" alt="Digital Mockup" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 filter  opacity-80 group-hover:-0 group-hover:opacity-100">
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
                             <div class="md:col-span-4">
@@ -217,7 +244,7 @@ title: Suraj | Nakamura House
                     <!-- Application: Digital -->
                     <div class="group">
                         <div class="w-full aspect-[4/3] md:aspect-video rounded-xl overflow-hidden mb-8 bg-slate-50 dark:bg-surface border border-black/5 dark:border-white/5">
-                            <img src="images/nakamura-digital-mockups.png" alt="Digital Mockup" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 filter grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100">
+                            <img src="images/nakamura-digital-mockups.png" alt="Digital Mockup" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 filter  opacity-80 group-hover:-0 group-hover:opacity-100">
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
                             <div class="md:col-span-4">
@@ -234,7 +261,7 @@ title: Suraj | Nakamura House
                     <!-- Application: Physical Space -->
                     <div class="group">
                         <div class="w-full aspect-[4/3] md:aspect-video rounded-xl overflow-hidden mb-8 bg-slate-50 dark:bg-surface border border-black/5 dark:border-white/5">
-                            <img src="images/nakamura-sign-mockups.png" alt="Physical Space Mockup" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 filter grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100">
+                            <img src="images/nakamura-sign-mockups.png" alt="Physical Space Mockup" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 filter  opacity-80 group-hover:-0 group-hover:opacity-100">
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
                             <div class="md:col-span-4">

@@ -1,0 +1,392 @@
+---
+layout: default
+title: Suraj | Eudemonia Elements
+---
+    <!-- Eudemonia Specific Fonts & Overrides -->
+<style>
+    @font-face {
+        font-family: 'Telegraf';
+        src: url('fonts/Telegraf-Regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Telegraf';
+        src: url('fonts/Telegraf-Ultrabold.woff2') format('woff2');
+        font-weight: 800;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    /* Force Telegraf on this specific page to override Tailwind's default Playfair/Inter */
+    .eudemonia-page h1, .eudemonia-page h2, .eudemonia-page h3, .eudemonia-page h4, .eudemonia-page h5, .eudemonia-page .font-serif {
+        font-family: 'Telegraf', sans-serif !important;
+        font-weight: 800 !important;
+    }
+    .eudemonia-page p, .eudemonia-page span, .eudemonia-page div, .eudemonia-page .font-sans {
+        font-family: 'Telegraf', sans-serif !important;
+    }
+    /* Fallback for mono tracking */
+    .eudemonia-page .font-mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+    }
+    /* Reset light weights since Telegraf only has 400 and 800 loaded */
+    .eudemonia-page .font-light {
+        font-weight: 400 !important;
+    }
+</style>
+
+<main class="eudemonia-page pt-32 pb-24">
+        <div class="max-w-[1100px] mx-auto px-6 lg:px-8">
+            
+            <!-- Back to Projects Action -->
+            <div class="mb-10 js-scroll-anim opacity-0">
+                <a href="index.html#projects" class="inline-flex items-center gap-3 track-hover group text-slate-400 hover:text-orange transition-colors duration-300">
+                    <div class="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center group-hover:border-orange transition-colors duration-300">
+                        <i class="ph ph-arrow-left text-sm transition-transform duration-500 group-hover:-translate-x-1"></i>
+                    </div>
+                    <span class="font-sans text-xs font-bold tracking-widest uppercase mt-0.5">Back to Projects</span>
+                </a>
+            </div>
+
+            <!-- Project Title Section -->
+            <div class="mb-16 mt-4 flex flex-col items-center text-center">
+                <p class="text-orange text-sm md:text-base uppercase tracking-widest font-bold mb-6 transition-colors duration-500 blur-in-title">Branding, UI/UX, & Videography</p>
+                <h1 class="font-serif text-6xl md:text-[6.5rem] leading-none tracking-tight text-black dark:text-white transition-colors duration-500 mb-8 blur-in-title">Eudemonia Elements</h1>
+            </div>
+
+            <!-- Full Width Hero Image -->
+            <div class="w-full rounded-2xl overflow-hidden shadow-2xl mb-24 opacity-0 js-scroll-anim border border-black/5 dark:border-white/5">
+                <img src="images/eudemonia-real-space-mockup.png" alt="Nakamura House Front View" class="w-full h-full object-cover transition-all duration-700 hover:scale-[1.02]">
+            </div>
+
+
+            <!-- Project Overview -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-0 mb-32 js-scroll-anim reveal-up">
+                <div class="md:col-span-4 flex flex-col gap-10 border-t md:border-t-0 md:border-r border-black/10 dark:border-white/10 pt-10 md:pt-0 md:pr-12 lg:pr-16">
+                    <div class="space-y-8">
+                        <div>
+                            <span class="block text-[10px] font-bold text-orange uppercase tracking-widest mb-2">Client</span>
+                            <span class="font-sans text-black dark:text-white font-medium text-lg">Eudemonia Elements</span>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] font-bold text-orange uppercase tracking-widest mb-2">Role</span>
+                            <span class="font-sans text-black dark:text-white font-medium text-lg">Brand Identity, Web Design, UI/UX</span>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] font-bold text-orange uppercase tracking-widest mb-2">Year</span>
+                            <span class="font-sans text-black dark:text-white font-medium text-lg">2023 - Present</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-8 flex flex-col justify-center md:pl-12 lg:pl-16">
+                    <h3 class="font-display font-extrabold text-3xl md:text-4xl text-black dark:text-white mb-6">A Sanctuary for Holistic Healing</h3>
+                    <div class="text-slate-600 dark:text-slate-400 text-lg md:text-xl font-light leading-relaxed space-y-6">
+                        <p>
+                            Eudemonia Elements is a comprehensive wellness sanctuary dedicated to balance, vitality, and holistic healing. Far beyond a simple retreat, it offers a complete ecosystem for health—featuring dry and steam saunas, ice and magnesium baths, a salt swimming pool, and the plant-based Symbiotic Kitchen.
+                        </p>
+                        <p>
+                            The business required a visual identity and user experience that could organize this massive array of facilities and detox programs into a unified, profoundly peaceful digital presence. The website needed to guide users seamlessly from exploring yoga and calisthenics spaces to booking complete skin detox programs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brand Guidelines (Colors & Typography) -->
+            <div class="mb-24 md:mb-32 pt-16 border-t border-black/10 dark:border-white/10">
+                <div class="mb-20">
+                    <h3 class="text-4xl md:text-5xl font-serif text-black dark:text-white transition-colors duration-500 mb-6 tracking-tight">Brand Guidelines</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-lg font-light max-w-2xl leading-relaxed transition-colors duration-500">
+                        The visual identity of Eudemonia Elements is rooted in antiquity and nature—a balanced interplay between classical architecture and organic earth tones.
+                    </p>
+                </div>
+
+                <div class="flex flex-col gap-12 md:gap-0">
+                    <!-- Color Palette (Stacked row with 50/50 half-and-half swatches) -->
+                    <div class="mb-24 js-scroll-anim opacity-0">
+                        <h4 class="text-xs font-bold text-orange uppercase tracking-widest mb-8">Color Palette</h4>
+                        <div class="flex flex-wrap items-center justify-start gap-8 md:gap-12">
+                            
+                            <!-- Color 1: Olive Canopy -->
+                            <div class="group text-center w-32 md:w-40">
+                                <div class="w-full aspect-square rounded-2xl overflow-hidden shadow-md mb-4 bg-[#5C6641] transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-lg mx-auto flex flex-col border border-black/5 dark:border-white/5">
+                                    <div class="flex-1 w-full bg-[#5C6641]"></div>
+                                    <div class="flex flex-1 w-full">
+                                        <div class="flex-1 bg-[#B4BFA0]" title="Lightest"></div>
+                                        <div class="flex-1 bg-[#889371]" title="Light"></div>
+                                        <div class="flex-1 bg-[#5C6641]" title="Base"></div>
+                                        <div class="flex-1 bg-[#3A4129]" title="Dark"></div>
+                                        <div class="flex-1 bg-[#1E2215]" title="Darkest"></div>
+                                    </div>
+                                </div>
+                                <span class="block text-sm font-bold text-black dark:text-white transition-colors duration-500">Olive Canopy</span>
+                                <span class="block text-xs text-slate-500 font-mono mt-1 transition-colors duration-500">#5C6641</span>
+                            </div>
+                            
+                            <!-- Color 2: Charcoal -->
+                            <div class="group text-center w-32 md:w-40">
+                                <div class="w-full aspect-square rounded-2xl overflow-hidden shadow-md mb-4 bg-[#24221E] transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-lg mx-auto flex flex-col border border-black/5 dark:border-white/5">
+                                    <div class="flex-1 w-full bg-[#24221E]"></div>
+                                    <div class="flex flex-1 w-full">
+                                        <div class="flex-1 bg-[#6B6862]" title="Lightest"></div>
+                                        <div class="flex-1 bg-[#45423D]" title="Light"></div>
+                                        <div class="flex-1 bg-[#24221E]" title="Base"></div>
+                                        <div class="flex-1 bg-[#151310]" title="Dark"></div>
+                                        <div class="flex-1 bg-[#000000]" title="Darkest"></div>
+                                    </div>
+                                </div>
+                                <span class="block text-sm font-bold text-black dark:text-white transition-colors duration-500">Charcoal</span>
+                                <span class="block text-xs text-slate-500 font-mono mt-1 transition-colors duration-500">#24221E</span>
+                            </div>
+                            
+                            <!-- Color 3: Sunlit Sand -->
+                            <div class="group text-center w-32 md:w-40">
+                                <div class="w-full aspect-square rounded-2xl overflow-hidden shadow-md mb-4 bg-[#D6C5A9] transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-lg mx-auto flex flex-col border border-black/5 dark:border-white/5">
+                                    <div class="flex-1 w-full bg-[#D6C5A9]"></div>
+                                    <div class="flex flex-1 w-full">
+                                        <div class="flex-1 bg-[#FCF9F2]" title="Lightest"></div>
+                                        <div class="flex-1 bg-[#EBE1D0]" title="Light"></div>
+                                        <div class="flex-1 bg-[#D6C5A9]" title="Base"></div>
+                                        <div class="flex-1 bg-[#B09F84]" title="Dark"></div>
+                                        <div class="flex-1 bg-[#8F7E66]" title="Darkest"></div>
+                                    </div>
+                                </div>
+                                <span class="block text-sm font-bold text-black dark:text-white transition-colors duration-500">Sunlit Sand</span>
+                                <span class="block text-xs text-slate-500 font-mono mt-1 transition-colors duration-500">#D6C5A9</span>
+                            </div>
+                            
+                            <!-- Color 4: Alabaster -->
+                            <div class="group text-center w-32 md:w-40">
+                                <div class="w-full aspect-square rounded-2xl overflow-hidden shadow-md mb-4 bg-[#F7F5F0] transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-lg mx-auto flex flex-col border border-black/10 dark:border-white/10">
+                                    <div class="flex-1 w-full bg-[#F7F5F0]"></div>
+                                    <div class="flex flex-1 w-full border-t border-black/5 dark:border-white/5">
+                                        <div class="flex-1 bg-[#FFFFFF]" title="Lightest"></div>
+                                        <div class="flex-1 bg-[#FCFCFA]" title="Light"></div>
+                                        <div class="flex-1 bg-[#F7F5F0]" title="Base"></div>
+                                        <div class="flex-1 bg-[#E0DED9]" title="Dark"></div>
+                                        <div class="flex-1 bg-[#C4C3BF]" title="Darkest"></div>
+                                    </div>
+                                </div>
+                                <span class="block text-sm font-bold text-black dark:text-white transition-colors duration-500">Alabaster</span>
+                                <span class="block text-xs text-slate-500 font-mono mt-1 transition-colors duration-500">#F7F5F0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Typography -->
+                    <div class="mb-20 js-scroll-anim opacity-0">
+                        <h4 class="text-sm uppercase tracking-widest text-orange font-bold mb-10 border-b border-black/5 dark:border-white/5 pb-4 transition-colors duration-500">Typography</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            
+                            <!-- Font 1: Telegraf Ultrabold -->
+                            <div class="p-8 border border-black/5 dark:border-white/5 rounded-2xl bg-slate-50/50 dark:bg-surface/50 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-lg">
+                                <div class="flex justify-between items-end mb-6">
+                                    <span class="text-2xl font-serif text-black dark:text-white transition-colors duration-500">Telegraf Ultrabold</span>
+                                    <span class="text-[10px] text-orange uppercase tracking-[0.2em] font-bold">Headings</span>
+                                </div>
+                                <div class="font-serif text-3xl md:text-4xl text-black dark:text-white transition-colors duration-500 mb-3 tracking-tight">
+                                    Aa Bb Cc Dd Ee Ff
+                                </div>
+                                <div class="text-sm text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">
+                                    A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>
+                                    0 1 2 3 4 5 6 7 8 9 & % $ @ ! ?
+                                </div>
+                            </div>
+                            
+                            <!-- Font 2: Telegraf Regular -->
+                            <div class="p-8 border border-black/5 dark:border-white/5 rounded-2xl bg-slate-50/50 dark:bg-surface/50 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-lg">
+                                <div class="flex justify-between items-end mb-6">
+                                    <span class="text-2xl font-sans font-medium text-black dark:text-white transition-colors duration-500">Telegraf Regular</span>
+                                    <span class="text-[10px] text-orange uppercase tracking-[0.2em] font-bold">Body Text</span>
+                                </div>
+                                <div class="font-sans font-light text-2xl md:text-3xl text-black dark:text-white transition-colors duration-500 mb-4 tracking-tight">
+                                    Aa Bb Cc Dd Ee Ff
+                                </div>
+                                <div class="text-sm text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">
+                                    a b c d e f g h i j k l m n o p q r s t u v w x y z<br>
+                                    0 1 2 3 4 5 6 7 8 9 & % $ @ ! ?
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Typographic Hierarchy -->
+                        <div class="mt-16">
+                            <h4 class="text-sm uppercase tracking-widest text-orange font-bold mb-6 border-b border-black/5 dark:border-white/5 pb-4 transition-colors duration-500">Typographic Hierarchy</h4>
+                            <p class="text-slate-600 dark:text-slate-400 text-base font-light mb-8 transition-colors duration-500 max-w-3xl leading-relaxed">
+                                A critical guide showing how to structure text. We provide examples for Headlines (H1), Subheads (H2), and Body Text (P), ensuring clear communication across all brand touchpoints.
+                            </p>
+
+                            <div class="p-8 md:p-12 border border-black/5 dark:border-white/5 rounded-2xl bg-slate-50/50 dark:bg-surface/50 backdrop-blur-sm transition-all duration-500 hover:shadow-lg flex flex-col gap-10">
+                                
+                                <!-- H1 Example -->
+                                <div class="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12 border-b border-black/5 dark:border-white/5 pb-8">
+                                    <div class="w-32 text-[10px] text-orange uppercase tracking-[0.2em] font-bold shrink-0">Headline / H1</div>
+                                    <div>
+                                        <div class="font-serif text-4xl md:text-5xl text-black dark:text-white transition-colors duration-500 tracking-tight mb-3">Wellness, Balance & Vitality</div>
+                                        <div class="text-xs text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">Telegraf • Ultrabold • 48px / 60px</div>
+                                    </div>
+                                </div>
+
+                                <!-- H2 Example -->
+                                <div class="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12 border-b border-black/5 dark:border-white/5 pb-8">
+                                    <div class="w-32 text-[10px] text-orange uppercase tracking-[0.2em] font-bold shrink-0">Subhead / H2</div>
+                                    <div>
+                                        <div class="font-sans text-2xl md:text-3xl font-medium text-black dark:text-white transition-colors duration-500 tracking-tight mb-3">Complete Relaxation Program</div>
+                                        <div class="text-xs text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">Telegraf • Ultrabold • 30px / 40px</div>
+                                    </div>
+                                </div>
+
+                                <!-- Body Example -->
+                                <div class="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12">
+                                    <div class="w-32 text-[10px] text-orange uppercase tracking-[0.2em] font-bold shrink-0">Body Text / P</div>
+                                    <div>
+                                        <div class="font-sans text-base md:text-lg text-slate-600 dark:text-slate-400 font-light leading-relaxed transition-colors duration-500 mb-3 max-w-2xl">Eudemonia Elements is a comprehensive wellness sanctuary dedicated to balance, vitality, and holistic healing. Far beyond a simple retreat, it offers a complete ecosystem for health.</div>
+                                        <div class="text-xs text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">Telegraf • Regular • 16px / 28px</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <!-- Core Concepts / Visual Language (3 Rows like screenshot) -->
+                <div class="js-scroll-anim opacity-0">
+                    <h4 class="text-xs font-bold text-orange uppercase tracking-widest mb-8">Core Concepts</h4>
+                    <div class="space-y-8">
+                        
+                        <!-- Row 1 -->
+                        <div class="grid md:grid-cols-12 gap-4 md:gap-16 border-t border-black/10 dark:border-white/10 pt-8">
+                            <div class="md:col-span-3">
+                                <span class="text-xs font-bold text-orange uppercase tracking-widest">Concept 01</span>
+                            </div>
+                            <div class="md:col-span-9">
+                                <h5 class="font-display font-extrabold text-2xl md:text-3xl text-black dark:text-white mb-3">Classical Antiquity</h5>
+                                <p class="text-slate-500 font-light text-lg">Drawing structural inspiration from Corinthian pillars to convey strength, establishment, and ancient wisdom.</p>
+                            </div>
+                        </div>
+
+                        <!-- Row 2 -->
+                        <div class="grid md:grid-cols-12 gap-4 md:gap-16 border-t border-black/10 dark:border-white/10 pt-8">
+                            <div class="md:col-span-3">
+                                <span class="text-xs font-bold text-orange uppercase tracking-widest">Concept 02</span>
+                            </div>
+                            <div class="md:col-span-9">
+                                <h5 class="font-display font-extrabold text-2xl md:text-3xl text-black dark:text-white mb-3">Organic Fluidity</h5>
+                                <p class="text-slate-500 font-light text-lg">Balancing rigid architectural motifs with the soft, natural flow of olive branches and sun rays.</p>
+                            </div>
+                        </div>
+
+                        <!-- Row 3 -->
+                        <div class="grid md:grid-cols-12 gap-4 md:gap-16 border-t border-black/10 dark:border-white/10 pt-8">
+                            <div class="md:col-span-3">
+                                <span class="text-xs font-bold text-orange uppercase tracking-widest">Concept 03</span>
+                            </div>
+                            <div class="md:col-span-9">
+                                <h5 class="font-display font-extrabold text-2xl md:text-3xl text-black dark:text-white mb-3">Breathable Spacing</h5>
+                                <p class="text-slate-500 font-light text-lg">Utilizing an abundance of negative space and the Alabaster backdrop to evoke feelings of calm and clarity.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ==========================================
+                 Brand Applications (Full Width Mockups)
+                 ========================================== -->
+            <div class="mb-24 md:mb-32 pt-16 border-t border-black/10 dark:border-white/10">
+                <div class="mb-16 js-scroll-anim opacity-0">
+                    <h2 class="font-display font-extrabold text-4xl md:text-5xl text-black dark:text-white mb-4">Brand Applications</h2>
+                    <p class="text-slate-500 font-light max-w-2xl text-lg">Real-world translation of the visual identity system.</p>
+                </div>
+
+                <div class="flex flex-col gap-20 md:gap-32">
+                    
+                    <!-- 1. Logo Presentation -->
+                    <div class="js-scroll-anim opacity-0 group">
+                        <!-- Full width image container matching screenshot style -->
+                        <div class="w-full aspect-[4/3] md:aspect-video rounded-xl overflow-hidden mb-8 bg-slate-50 dark:bg-surface border border-black/5 dark:border-white/5">
+                            <img src="images/eudemonia-stationary-mockups.png" alt="Digital Mockup" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 filter  opacity-80 group-hover:-0 group-hover:opacity-100">
+                        </div>
+                        <div class="grid md:grid-cols-12 gap-4 md:gap-16 items-start px-2">
+                            <div class="md:col-span-3">
+                                <h4 class="font-display font-extrabold text-3xl text-black dark:text-white">Primary Mark</h4>
+                            </div>
+                            <div class="md:col-span-9">
+                                <p class="text-slate-500 dark:text-slate-400 font-light text-lg md:text-xl">The logo design draws heavy inspiration from classical antiquity. By marrying the structural strength of a Corinthian pillar with the organic flow of olive branches and the radiance of a rising sun, it establishes Eudemonia as a foundational pillar of health.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Digital / Web Platform -->
+                    <div class="js-scroll-anim opacity-0 group">
+                        <div class="w-full aspect-[4/3] md:aspect-video rounded-xl overflow-hidden shadow-2xl bg-slate-100 aspect-square md:aspect-[21/9] isolate transform-gpu mb-6 md:mb-10">
+                            <!-- Showcasing the web design screenshot -->
+                            <img src="images/eudemonia-digital-mockups.png" alt="Digital Platforms Mockup" class="w-full h-full object-cover object-top transition-all duration-[1.5s] hover:scale-105">
+                        </div>
+                        <div class="grid md:grid-cols-12 gap-4 md:gap-16 items-start px-2">
+                            <div class="md:col-span-3">
+                                <h4 class="font-display font-extrabold text-3xl text-black dark:text-white">Web Design</h4>
+                            </div>
+                            <div class="md:col-span-9">
+                                <p class="text-slate-500 dark:text-slate-400 font-light text-lg md:text-xl">A fully responsive web presence that organizes a massive array of facilities—from dry saunas to calisthenics parks—into a clean, breathable, and deeply calming user experience utilizing the Olive Canopy palette.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Physical Space / Wellness Center -->
+                    <div class="js-scroll-anim opacity-0 group">
+                        <div class="w-full aspect-[4/3] md:aspect-video rounded-xl overflow-hidden shadow-2xl bg-slate-100 aspect-video md:aspect-[21/9] isolate transform-gpu mb-6 md:mb-10">
+                            <!-- Placeholder image representing wellness/sauna space -->
+                            <img src="images/eudemonia-realspace-mockup.png" alt="Physical Space Mockup" class="w-full h-full object-cover  transition-all duration-[1.5s] hover:scale-105 hover:-0">
+                        </div>
+                        <div class="grid md:grid-cols-12 gap-4 md:gap-16 items-start px-2">
+                            <div class="md:col-span-3">
+                                <h4 class="font-display font-extrabold text-3xl text-black dark:text-white">Physical Space</h4>
+                            </div>
+                            <div class="md:col-span-9">
+                                <p class="text-slate-500 dark:text-slate-400 font-light text-lg md:text-xl">Translation of the brand into the physical realm, including comprehensive menu designs for the plant-based Symbiotic Kitchen and instructional signage for the detox facilities, ensuring a cohesive wellness journey.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Restaurant Space -->
+                    <div class="js-scroll-anim opacity-0 group">
+                        <div class="w-full aspect-[4/3] md:aspect-video rounded-xl overflow-hidden shadow-2xl bg-slate-100 aspect-video md:aspect-[21/9] isolate transform-gpu mb-6 md:mb-10">
+                            <!-- Placeholder image representing wellness/sauna space -->
+                            <img src="images/eudemonia-restaurant-mockup.png" alt="Restaurant Space Mockup" class="w-full h-full object-cover  transition-all duration-[1.5s] hover:scale-105 hover:-0">
+                        </div>
+                        <div class="grid md:grid-cols-12 gap-4 md:gap-16 items-start px-2">
+                            <div class="md:col-span-3">
+                                <h4 class="font-display font-extrabold text-3xl text-black dark:text-white">Restaurant Space</h4>
+                            </div>
+                            <div class="md:col-span-9">
+                                <p class="text-slate-500 dark:text-slate-400 font-light text-lg md:text-xl">Translation of the brand into the physical realm, including comprehensive menu designs for the plant-based Symbiotic Kitchen and instructional signage for the detox facilities, ensuring a cohesive wellness journey.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Next Project Navigation -->
+            <div class="border-t border-black/10 dark:border-white/10 py-20 text-center opacity-0 js-scroll-anim transition-colors duration-500">
+                <p class="text-orange uppercase tracking-widest text-sm font-bold mb-6">Next Project</p>
+                <a href="#" class="inline-block track-hover group">
+                    <div class="relative grid place-items-center">
+                        <h2 class="col-start-1 row-start-1 font-serif text-5xl md:text-7xl text-black dark:text-white transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0 tracking-tight">Kometra</h2>
+                        <h2 class="col-start-1 row-start-1 font-serif text-5xl md:text-7xl text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none tracking-tight" aria-hidden="true">Kometra</h2>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ==========================================
+         Footer
+         ========================================== -->
