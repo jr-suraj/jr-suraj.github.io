@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary Meta Tags -->
-    <title>Suraj | Nakamura House</title>
-    <meta name="title" content="Suraj | Nakamura House">
+    <title>Suraj | ZIP-O-LOG 80th Anniversary</title>
+    <meta name="title" content="Suraj | ZIP-O-LOG 80th Anniversary">
     <meta name="description" content="Freelance Brand, UI/UX Designer and Front-end Developer based in Chiang Mai, Thailand.">
     <meta name="keywords" content="UI/UX Designer, Graphic Designer, Frontend Developer, Brand Identity, Portfolio">
     <meta name="author" content="Suraj">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://localhost:4000/nakamura.html">
-    <meta property="og:title" content="Suraj | Nakamura House">
+    <meta property="og:url" content="http://localhost:4000/zipolog.html">
+    <meta property="og:title" content="Suraj | ZIP-O-LOG 80th Anniversary">
     <meta property="og:description" content="Freelance Brand, UI/UX Designer and Front-end Developer based in Chiang Mai, Thailand.">
     <meta property="og:image" content="http://localhost:4000/images/hero-thumbnail.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="http://localhost:4000/nakamura.html">
-    <meta property="twitter:title" content="Suraj | Nakamura House">
+    <meta property="twitter:url" content="http://localhost:4000/zipolog.html">
+    <meta property="twitter:title" content="Suraj | ZIP-O-LOG 80th Anniversary">
     <meta property="twitter:description" content="Freelance Brand, UI/UX Designer and Front-end Developer based in Chiang Mai, Thailand.">
     <meta property="twitter:image" content="http://localhost:4000/images/hero-thumbnail.png">
 
@@ -398,330 +398,302 @@
     </header>
 
     <!-- CONTENT INJECTED HERE BY JEKYLL -->
-        <main class="pt-32 pb-24">
-        <div class="max-w-[1100px] mx-auto px-6 lg:px-8">
-            
-            <!-- Back to Projects Action -->
-            <div class="mb-10 js-scroll-anim opacity-0">
-                <a href="index.html#projects" class="inline-flex items-center gap-3 track-hover group text-slate-400 hover:text-orange transition-colors duration-300">
-                    <div class="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center group-hover:border-orange transition-colors duration-300">
-                        <i class="ph ph-arrow-left text-sm transition-transform duration-500 group-hover:-translate-x-1"></i>
-                    </div>
-                    <span class="font-sans text-xs font-bold tracking-widest uppercase mt-0.5">Back to Projects</span>
-                </a>
-            </div>
+    <!-- Zip-O-Log Specific Fonts & Overrides -->
+<!-- <style>
+    @font-face {
+        font-family: 'Northwest';
+        src: url('/fonts/Northwest-Regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
 
-            <!-- Project Title Section -->
-            <div class="mb-16 mt-4 flex flex-col items-center text-center">
-                <p class="text-orange text-sm md:text-base uppercase tracking-widest font-bold mb-6 transition-colors duration-500 blur-in-title">Branding & UI/UX</p>
-                <h1 class="font-serif text-6xl md:text-[6.5rem] leading-none tracking-tight text-black dark:text-white transition-colors duration-500 mb-8 blur-in-title">Nakamura House</h1>
-            </div>
+    /* Import Poppins for clean, modern body text */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-            <!-- Full Width Hero Image -->
-            <div class="w-full rounded-2xl overflow-hidden shadow-2xl mb-24 opacity-0 js-scroll-anim border border-black/5 dark:border-white/5">
-                <img src="images/nakamurahouse_logo_flow.png" alt="Nakamura House Front View" class="w-full h-full object-cover transition-all duration-700 hover:scale-[1.02]">
-            </div>
+    .zipolog-page {
+        font-family: 'Poppins', sans-serif !important;
+    }
 
-            <!-- Project Details Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-0 mb-32 opacity-0 js-scroll-anim">
-                
-                <!-- Left Column: Metadata -->
-                <div class="md:col-span-4 flex flex-col gap-10 border-t md:border-t-0 md:border-r border-black/10 dark:border-white/10 pt-10 md:pt-0 md:pr-12 lg:pr-16">
-                    <div>
-                        <h4 class="text-xs uppercase tracking-widest text-orange font-bold mb-2">Client</h4>
-                        <p class="text-xl font-serif text-black dark:text-white transition-colors duration-500">Nakamura Real Estate</p>
-                    </div>
-                    <div>
-                        <h4 class="text-xs uppercase tracking-widest text-orange font-bold mb-2">Role</h4>
-                        <p class="text-lg text-slate-700 dark:text-slate-300 font-light transition-colors duration-500">Brand Identity<br>Architecture Photography</p>
-                    </div>
-                    <div>
-                        <h4 class="text-xs uppercase tracking-widest text-orange font-bold mb-2">Year</h4>
-                        <p class="text-lg text-slate-700 dark:text-slate-300 font-light transition-colors duration-500">2024</p>
-                    </div>
+    /* Bold Timber Headings using Northwest */
+    .zipolog-page h1, 
+    .zipolog-page h2, 
+    .zipolog-page h3, 
+    .zipolog-page h4, 
+    .zipolog-page .font-bold-heading {
+        font-family: 'Northwest', 'Poppins', sans-serif !important;
+        font-weight: 400 !important; /* Northwest is naturally bold */
+        letter-spacing: 0.02em !important;
+        text-transform: uppercase;
+    }
+
+    .zipolog-page p, 
+    .zipolog-page span, 
+    .zipolog-page .font-sans {
+        font-family: 'Poppins', sans-serif !important;
+        font-weight: 300;
+    }
+
+    .chart-container { position: relative; width: 100%; max-width: 600px; margin: auto; height: 350px; max-height: 400px; }
+</style> -->
+
+<main class="zipolog-page pt-32 pb-24">
+    <div class="max-w-[1100px] mx-auto px-6 lg:px-8">
+        
+        <!-- Back to Projects Action -->
+        <div class="mb-10 js-scroll-anim opacity-0">
+            <a href="index.html#projects" class="inline-flex items-center gap-3 track-hover group text-slate-400 hover:text-orange transition-colors duration-300">
+                <div class="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center group-hover:border-orange transition-colors duration-300">
+                    <i class="ph ph-arrow-left text-sm transition-transform duration-500 group-hover:-translate-x-1"></i>
                 </div>
-
-                <!-- Right Column: Description -->
-                <div class="md:col-span-8 flex flex-col justify-center md:pl-12 lg:pl-16">
-                    <h3 class="text-3xl md:text-4xl font-serif text-black dark:text-white mb-8 transition-colors duration-500">Minimalism Meets Modern Living</h3>
-                    <div class="text-slate-600 dark:text-slate-400 text-lg leading-[1.8] font-light space-y-6 transition-colors duration-500">
-                        <p>The Nakamura House project required a holistic approach to capture the stark, beautiful minimalism of this modern architectural marvel. The goal was to create a visual identity that felt as clean, structured, and deliberate as the building itself.</p>
-                        <p>I developed a stark red geometric logo that mirrors the distinctive rooflines of the property, providing a bold contrast against the predominantly white and timber facades of the home. The photography session focused on natural lighting, emphasizing the sharp angles, the warmth of the wooden slat details, and the serene landscaping surrounding the property.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Brand Guidelines Section -->
-            <div class="mb-24 md:mb-32 pt-16 border-t border-black/10 dark:border-white/10">
-                <div class="mb-20">
-                    <h3 class="text-4xl md:text-5xl font-serif text-black dark:text-white transition-colors duration-500 mb-6 tracking-tight">Brand Guidelines</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-lg font-light max-w-2xl leading-relaxed transition-colors duration-500">
-                        The visual foundation of Nakamura House relies on a strict, minimalist system. These core guidelines ensure consistency across all architectural branding and marketing touchpoints.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-12 md:gap-0">
-                    <!-- Color Palette (Rounded-Rectangles with Swatches) -->
-                    <div class="mb-24 js-scroll-anim opacity-0">
-                        <h4 class="text-xs font-bold text-orange uppercase tracking-widest mb-8">Color Palette</h4>
-                        <div class="flex flex-wrap items-center justify-start gap-8 md:gap-12">
-                            
-                            <!-- Color 1: Nakamura Red -->
-                            <div class="group text-center w-32 md:w-40">
-                                <div class="w-full aspect-square rounded-2xl overflow-hidden shadow-md mb-4 bg-[#C01A22] transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-lg mx-auto flex flex-col border border-black/5 dark:border-white/5">
-                                    <div class="flex-1 w-full bg-[#C01A22]"></div>
-                                    <div class="flex flex-1 w-full">
-                                        <div class="flex-1 bg-[#F3D1D3]" title="Lightest"></div>
-                                        <div class="flex-1 bg-[#DA5E64]" title="Light"></div>
-                                        <div class="flex-1 bg-[#C01A22]" title="Base"></div>
-                                        <div class="flex-1 bg-[#8A1318]" title="Dark"></div>
-                                        <div class="flex-1 bg-[#550B0F]" title="Darkest"></div>
-                                    </div>
-                                </div>
-                                <span class="block text-sm font-bold text-black dark:text-white transition-colors duration-500">Nakamura Red</span>
-                                <span class="block text-xs text-slate-500 font-mono mt-1 transition-colors duration-500">#C01A22</span>
-                            </div>
-                            
-                            <!-- Color 2: Charcoal Black -->
-                            <div class="group text-center w-32 md:w-40">
-                                <div class="w-full aspect-square rounded-2xl overflow-hidden shadow-md mb-4 bg-[#1A1A1A] transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-lg mx-auto flex flex-col border border-black/5 dark:border-white/5">
-                                    <div class="flex-1 w-full bg-[#1A1A1A]"></div>
-                                    <div class="flex flex-1 w-full">
-                                        <div class="flex-1 bg-[#666666]" title="Lightest"></div>
-                                        <div class="flex-1 bg-[#404040]" title="Light"></div>
-                                        <div class="flex-1 bg-[#1A1A1A]" title="Base"></div>
-                                        <div class="flex-1 bg-[#0D0D0D]" title="Dark"></div>
-                                        <div class="flex-1 bg-[#000000]" title="Darkest"></div>
-                                    </div>
-                                </div>
-                                <span class="block text-sm font-bold text-black dark:text-white transition-colors duration-500">Charcoal</span>
-                                <span class="block text-xs text-slate-500 font-mono mt-1 transition-colors duration-500">#1A1A1A</span>
-                            </div>
-                            
-                            <!-- Color 3: Warm Brown -->
-                            <div class="group text-center w-32 md:w-40">
-                                <div class="w-full aspect-square rounded-2xl overflow-hidden shadow-md mb-4 bg-[#795A46] transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-lg mx-auto flex flex-col border border-black/5 dark:border-white/5">
-                                    <div class="flex-1 w-full bg-[#795A46]"></div>
-                                    <div class="flex flex-1 w-full">
-                                        <div class="flex-1 bg-[#D7C8BD]" title="Lightest"></div>
-                                        <div class="flex-1 bg-[#A88A77]" title="Light"></div>
-                                        <div class="flex-1 bg-[#795A46]" title="Base"></div>
-                                        <div class="flex-1 bg-[#553F31]" title="Dark"></div>
-                                        <div class="flex-1 bg-[#30241C]" title="Darkest"></div>
-                                    </div>
-                                </div>
-                                <span class="block text-sm font-bold text-black dark:text-white transition-colors duration-500">Warm Brown</span>
-                                <span class="block text-xs text-slate-500 font-mono mt-1 transition-colors duration-500">#795A46</span>
-                            </div>
-                            
-                            <!-- Color 4: Pure White -->
-                            <div class="group text-center w-32 md:w-40">
-                                <div class="w-full aspect-square rounded-2xl overflow-hidden shadow-md mb-4 bg-[#FFFFFF] transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-lg mx-auto flex flex-col border border-black/10 dark:border-white/10">
-                                    <div class="flex-1 w-full bg-[#FFFFFF]"></div>
-                                    <div class="flex flex-1 w-full border-t border-black/5 dark:border-white/5">
-                                        <div class="flex-1 bg-[#FFFFFF]" title="Lightest"></div>
-                                        <div class="flex-1 bg-[#FAFAFA]" title="Light"></div>
-                                        <div class="flex-1 bg-[#FFFFFF]" title="Base"></div>
-                                        <div class="flex-1 bg-[#EBEBEB]" title="Dark"></div>
-                                        <div class="flex-1 bg-[#CCCCCC]" title="Darkest"></div>
-                                    </div>
-                                </div>
-                                <span class="block text-sm font-bold text-black dark:text-white transition-colors duration-500">Pure White</span>
-                                <span class="block text-xs text-slate-500 font-mono mt-1 transition-colors duration-500">#FFFFFF</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Typography -->
-                    <div>
-                        <h4 class="text-sm uppercase tracking-widest text-orange font-bold mb-10 border-b border-black/5 dark:border-white/5 pb-4 transition-colors duration-500">Typography</h4>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            
-                            <!-- Font 1: Playfair Display -->
-                            <div class="p-8 border border-black/5 dark:border-white/5 rounded-2xl bg-slate-50/50 dark:bg-surface/50 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-lg">
-                                <div class="flex justify-between items-end mb-6">
-                                    <span class="text-2xl font-serif text-black dark:text-white transition-colors duration-500">Playfair Display</span>
-                                    <span class="text-[10px] text-orange uppercase tracking-[0.2em] font-bold">Headings</span>
-                                </div>
-                                <div class="font-serif text-3xl md:text-4xl text-black dark:text-white transition-colors duration-500 mb-3 tracking-tight">
-                                    Aa Bb Cc Dd Ee Ff
-                                </div>
-                                <div class="text-sm text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">
-                                    A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>
-                                    0 1 2 3 4 5 6 7 8 9 & % $ @ ! ?
-                                </div>
-                            </div>
-                            
-                            <!-- Font 2: Inter -->
-                            <div class="p-8 border border-black/5 dark:border-white/5 rounded-2xl bg-slate-50/50 dark:bg-surface/50 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-lg">
-                                <div class="flex justify-between items-end mb-6">
-                                    <span class="text-2xl font-sans font-medium text-black dark:text-white transition-colors duration-500">Inter</span>
-                                    <span class="text-[10px] text-orange uppercase tracking-[0.2em] font-bold">Body Text</span>
-                                </div>
-                                <div class="font-sans font-light text-2xl md:text-3xl text-black dark:text-white transition-colors duration-500 mb-4 tracking-tight">
-                                    Aa Bb Cc Dd Ee Ff
-                                </div>
-                                <div class="text-sm text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">
-                                    a b c d e f g h i j k l m n o p q r s t u v w x y z<br>
-                                    0 1 2 3 4 5 6 7 8 9 & % $ @ ! ?
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Typographic Hierarchy -->
-                        <div class="mt-16">
-                            <h4 class="text-sm uppercase tracking-widest text-orange font-bold mb-6 border-b border-black/5 dark:border-white/5 pb-4 transition-colors duration-500">Typographic Hierarchy</h4>
-                            <p class="text-slate-600 dark:text-slate-400 text-base font-light mb-8 transition-colors duration-500 max-w-3xl leading-relaxed">
-                                A critical guide showing how to structure text. We provide examples for Headlines (H1), Subheads (H2), and Body Text (P), ensuring clear communication across all brand touchpoints.
-                            </p>
-
-                            <div class="p-8 md:p-12 border border-black/5 dark:border-white/5 rounded-2xl bg-slate-50/50 dark:bg-surface/50 backdrop-blur-sm transition-all duration-500 hover:shadow-lg flex flex-col gap-10">
-                                
-                                <!-- H1 Example -->
-                                <div class="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12 border-b border-black/5 dark:border-white/5 pb-8">
-                                    <div class="w-32 text-[10px] text-orange uppercase tracking-[0.2em] font-bold shrink-0">Headline / H1</div>
-                                    <div>
-                                        <div class="font-serif text-4xl md:text-5xl text-black dark:text-white transition-colors duration-500 tracking-tight mb-3">Modern Living Reimagined</div>
-                                        <div class="text-xs text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">Playfair Display • Bold • 48px / 60px</div>
-                                    </div>
-                                </div>
-
-                                <!-- H2 Example -->
-                                <div class="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12 border-b border-black/5 dark:border-white/5 pb-8">
-                                    <div class="w-32 text-[10px] text-orange uppercase tracking-[0.2em] font-bold shrink-0">Subhead / H2</div>
-                                    <div>
-                                        <div class="font-sans text-2xl md:text-3xl font-medium text-black dark:text-white transition-colors duration-500 tracking-tight mb-3">Architectural Excellence</div>
-                                        <div class="text-xs text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">Inter • Medium • 30px / 40px</div>
-                                    </div>
-                                </div>
-
-                                <!-- Body Example -->
-                                <div class="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12">
-                                    <div class="w-32 text-[10px] text-orange uppercase tracking-[0.2em] font-bold shrink-0">Body Text / P</div>
-                                    <div>
-                                        <div class="font-sans text-base md:text-lg text-slate-600 dark:text-slate-400 font-light leading-relaxed transition-colors duration-500 mb-3 max-w-2xl">The Nakamura House project required a holistic approach to capture the stark, beautiful minimalism of this modern architectural marvel.</div>
-                                        <div class="text-xs text-slate-500 dark:text-slate-400 font-mono transition-colors duration-500">Inter • Light • 16px / 28px</div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            
-
-            <!-- Brand Applications Section -->
-            <div class="mt-32 mb-32 border-t border-black/10 dark:border-white/10 pt-24 opacity-0 js-scroll-anim transition-colors duration-500">
-                <div class="mb-16">
-                    <h3 class="text-4xl md:text-5xl font-serif text-black dark:text-white transition-colors duration-500 mb-6 tracking-tight">Brand Applications</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-lg font-light max-w-2xl leading-relaxed transition-colors duration-500">
-                        Visual proof of how the branding comes together in the real world.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-24">
-                    <!-- Application: Stationery -->
-                    <div class="group">
-                        <div class="w-full aspect-[4/3] md:aspect-video rounded-xl overflow-hidden mb-8 bg-slate-50 dark:bg-surface border border-black/5 dark:border-white/5">
-                            <img src="images/nakamura-office-mockup.png" alt="Digital Mockup" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 filter  opacity-80 group-hover:-0 group-hover:opacity-100">
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
-                            <div class="md:col-span-4">
-                                <h4 class="text-2xl md:text-3xl font-serif text-black dark:text-white transition-colors duration-500 m-0">Stationery</h4>
-                            </div>
-                            <div class="md:col-span-8">
-                                <p class="text-base md:text-lg text-slate-500 dark:text-slate-400 font-light leading-relaxed transition-colors duration-500 m-0">
-                                    Business cards, letterheads, and envelopes designed to convey premium real estate trust and structural elegance.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Application: Digital -->
-                    <div class="group">
-                        <div class="w-full aspect-[4/3] md:aspect-video rounded-xl overflow-hidden mb-8 bg-slate-50 dark:bg-surface border border-black/5 dark:border-white/5">
-                            <img src="images/nakamura-digital-mockups.png" alt="Digital Mockup" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 filter  opacity-80 group-hover:-0 group-hover:opacity-100">
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
-                            <div class="md:col-span-4">
-                                <h4 class="text-2xl md:text-3xl font-serif text-black dark:text-white transition-colors duration-500 m-0">Digital</h4>
-                            </div>
-                            <div class="md:col-span-8">
-                                <p class="text-base md:text-lg text-slate-500 dark:text-slate-400 font-light leading-relaxed transition-colors duration-500 m-0">
-                                    Website homepage mockups, email signatures, and social media templates optimized for cohesive online presence.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Application: Physical Space -->
-                    <div class="group">
-                        <div class="w-full aspect-[4/3] md:aspect-video rounded-xl overflow-hidden mb-8 bg-slate-50 dark:bg-surface border border-black/5 dark:border-white/5">
-                            <img src="images/nakamura-sign-mockups.png" alt="Physical Space Mockup" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 filter  opacity-80 group-hover:-0 group-hover:opacity-100">
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
-                            <div class="md:col-span-4">
-                                <h4 class="text-2xl md:text-3xl font-serif text-black dark:text-white transition-colors duration-500 m-0">Physical Space</h4>
-                            </div>
-                            <div class="md:col-span-8">
-                                <p class="text-base md:text-lg text-slate-500 dark:text-slate-400 font-light leading-relaxed transition-colors duration-500 m-0">
-                                    Signage on the building facade, interior wayfinding, uniforms, and vehicle wraps extending the architectural identity.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project Navigation (Previous / Next) -->
-            <div class="border-t border-black/10 dark:border-white/10 py-16 md:py-24 opacity-0 js-scroll-anim transition-colors duration-500">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-12 md:gap-8">
-                    
-                    <!-- Previous Project Container (Handles the 50% width layout) -->
-                    <div class="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
-                        <!-- The Anchor Tag (Restricts the hover area only to the text) -->
-                        <a href="nakamura.html" class="inline-flex flex-col items-center md:items-start group track-hover outline-none cursor-pointer">
-                            <div class="flex items-center gap-2 text-slate-400 group-hover:text-orange uppercase tracking-widest text-sm font-bold mb-6 transition-colors duration-300">
-                                <i class="ph ph-arrow-left text-lg transition-transform duration-500 group-hover:-translate-x-2"></i> Previous Project
-                            </div>
-                            <div class="relative grid place-items-center md:place-items-start">
-                                <!-- Solid Text (Fades out on hover) -->
-                                <h2 class="col-start-1 row-start-1 font-serif text-5xl md:text-6xl text-black dark:text-white transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0 tracking-tight m-0">Nakamura</h2>
-                                <!-- Gradient Text (Fades in on hover) -->
-                                <h2 class="col-start-1 row-start-1 font-serif text-5xl md:text-6xl text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none tracking-tight m-0" aria-hidden="true">Nakamura</h2>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Vertical Divider (Desktop) / Horizontal Divider (Mobile) -->
-                    <div class="hidden md:block w-[1px] h-24 bg-black/10 dark:bg-white/10"></div>
-                    <div class="md:hidden w-24 h-[1px] bg-black/10 dark:bg-white/10"></div>
-
-                    <!-- Next Project Container (Handles the 50% width layout) -->
-                    <div class="w-full md:w-1/2 flex flex-col items-center md:items-end text-center md:text-right">
-                        <!-- The Anchor Tag (Restricts the hover area only to the text) -->
-                        <a href="#" class="inline-flex flex-col items-center md:items-end group track-hover outline-none cursor-pointer">
-                            <div class="flex items-center gap-2 text-slate-400 group-hover:text-orange uppercase tracking-widest text-sm font-bold mb-6 transition-colors duration-300">
-                                Next Project <i class="ph ph-arrow-right text-lg transition-transform duration-500 group-hover:translate-x-2"></i>
-                            </div>
-                            <div class="relative grid place-items-center md:place-items-end">
-                                <!-- Solid Text (Fades out on hover) -->
-                                <h2 class="col-start-1 row-start-1 font-serif text-5xl md:text-6xl text-black dark:text-white transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0 tracking-tight m-0">Kometra</h2>
-                                <!-- Gradient Text (Fades in on hover) -->
-                                <h2 class="col-start-1 row-start-1 font-serif text-5xl md:text-6xl text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none tracking-tight m-0" aria-hidden="true">Kometra</h2>
-                            </div>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-
+                <span class="text-[10px] font-bold tracking-widest uppercase mt-0.5">Back to Projects</span>
+            </a>
         </div>
-    </main>
 
-    <!-- ==========================================
-         Footer
-         ========================================== -->
+        <!-- Project Title Section -->
+        <div class="mb-16 mt-4 flex flex-col items-center text-center">
+            <p class="text-orange text-sm md:text-base uppercase tracking-widest font-bold mb-6 transition-colors duration-500 blur-in-title">Heritage Rebranding • 80th Anniversary</p>
+            <h1 class="text-6xl md:text-[6.5rem] leading-none tracking-tight text-industrialBlack dark:text-white transition-colors duration-500 mb-8 blur-in-title">ZIP-O-LOG Mills</h1>
+        </div>
+
+        <!-- Full Width Hero Image -->
+        <div class="w-full rounded-2xl overflow-hidden shadow-2xl mb-24 opacity-0 js-scroll-anim border border-black/5 dark:border-white/5 bg-white">
+            <img src="images/ZIP-O-LOG 80th Anniversary Logo Creation.png" alt="ZIP-O-LOG 80th Anniversary Rebrand" class="w-full h-full object-contain p-12 md:p-24 transition-all duration-700 hover:scale-[1.02]">
+        </div>
+
+        <!-- Project Details Grid (Nakamura Style) -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-0 mb-32 js-scroll-anim reveal-up">
+            <div class="md:col-span-4 flex flex-col gap-10 border-t md:border-t-0 md:border-r border-black/10 dark:border-white/10 pt-10 md:pt-0 md:pr-12 lg:pr-16">
+                <div class="space-y-8">
+                    <div>
+                        <span class="block text-[10px] font-bold text-orange uppercase tracking-widest mb-2">Client</span>
+                        <span class="text-industrialBlack dark:text-white font-medium text-lg">Zip-O-Log Mills (USA)</span>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] font-bold text-orange uppercase tracking-widest mb-2">Role</span>
+                        <span class="text-industrialBlack dark:text-white font-medium text-lg">Rebranding </span>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] font-bold text-orange uppercase tracking-widest mb-2">Year</span>
+                        <span class="text-industrialBlack dark:text-white font-medium text-lg">2024 (Anniversary)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="md:col-span-8 flex flex-col justify-center md:pl-12 lg:pl-16">
+                <h3 class="text-3xl md:text-4xl text-industrialBlack dark:text-white mb-6">A Legacy Carved in Timber</h3>
+                <div class="text-slate-600 dark:text-slate-400 text-lg md:text-xl font-light leading-relaxed space-y-6">
+                    <p>Zip-O-Log Mills represents the heavy-duty heart of the American timber industry. To celebrate 80 years of excellence (1944–2024), I was tasked with an anniversary evolution of their original "Zip-O-Log Mills" brand mark.</p>
+                    <p>The goal was to create an identity that felt as grounded and industrial as the logs they process, while introducing a celebratory fluidity through the landscape ribbon. This anniversary mark acts as a bridge between their historical founding and their future-facing sustainability goals.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Concept Breakdown: Anatomy of the Rebrand (New Bold Section) -->
+        <div class="mb-32 pt-16 border-t border-black/10 dark:border-white/10 js-scroll-anim opacity-0">
+             <h3 class="text-4xl text-industrialBlack dark:text-white mb-12 tracking-tight">Anatomy of the Rebrand</h3>
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                 <div class="space-y-12">
+                     <div class="flex gap-6">
+                         <div class="w-12 h-12 shrink-0 bg-heritageRed/10 rounded-full flex items-center justify-center text-heritageRed">
+                             <span class="font-bold">01</span>
+                         </div>
+                         <div>
+                             <h4 class="text-xl mb-3">The "80" Wood Logs</h4>
+                             <p class="text-slate-500 font-light">The anniversary numeral is rendered as raw wood log cross-sections. The growth rings symbolize the layers of company history and institutional knowledge built since 1944.</p>
+                         </div>
+                     </div>
+                     <div class="flex gap-6">
+                         <div class="w-12 h-12 shrink-0 bg-heritageRed/10 rounded-full flex items-center justify-center text-heritageRed">
+                             <span class="font-bold">02</span>
+                         </div>
+                         <div>
+                             <h4 class="text-xl mb-3">Landscape Ribbon</h4>
+                             <p class="text-slate-500 font-light">The base ribbon represents the rugged timberlands. Its geometric flow mirrors the topography of the US logging sites, anchoring the logo to the land itself.</p>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="bg-white dark:bg-surface rounded-3xl p-10 border border-black/5 shadow-sm">
+                    <h4 class="text-center mb-8 text-sm tracking-widest text-slate-400">Brand Resilience Index</h4>
+                    <div class="chart-container">
+                        <canvas id="timberChart"></canvas>
+                    </div>
+                 </div>
+             </div>
+        </div>
+
+        <!-- Brand Guidelines (Nakamura Style) -->
+        <div class="mb-24 md:mb-32 pt-16 border-t border-black/10 dark:border-white/10">
+            <h3 class="text-4xl md:text-5xl text-industrialBlack dark:text-white mb-16 tracking-tight">Industrial Standards</h3>
+
+            <!-- Color Palette (50/50 Half-and-Half Swatches) -->
+            <div class="mb-24 js-scroll-anim opacity-0">
+                <h4 class="text-xs font-bold text-orange uppercase tracking-widest mb-10">Color Palette</h4>
+                <div class="flex flex-wrap items-center justify-start gap-8 md:gap-12">
+                    
+                    <!-- Color 1: Heritage Red -->
+                    <div class="group text-center w-32 md:w-40">
+                        <div class="w-full aspect-square rounded-2xl overflow-hidden shadow-md mb-4 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-lg mx-auto flex flex-col border border-black/5">
+                            <div class="flex-1 w-full bg-[#D23B2A]"></div>
+                            <div class="flex flex-1 w-full">
+                                <div class="flex-1 bg-[#F5DED9]" title="Lightest"></div>
+                                <div class="flex-1 bg-[#E89F95]" title="Light"></div>
+                                <div class="flex-1 bg-[#D23B2A]" title="Base"></div>
+                                <div class="flex-1 bg-[#9C2B1F]" title="Dark"></div>
+                                <div class="flex-1 bg-[#5E1A12]" title="Darkest"></div>
+                            </div>
+                        </div>
+                        <span class="block text-sm font-bold text-industrialBlack dark:text-white">Heritage Red</span>
+                        <span class="block text-xs text-slate-500 font-mono mt-1">#D23B2A</span>
+                    </div>
+                    
+                    <!-- Color 2: Industrial Black -->
+                    <div class="group text-center w-32 md:w-40">
+                        <div class="w-full aspect-square rounded-2xl overflow-hidden shadow-md mb-4 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-lg mx-auto flex flex-col border border-black/5">
+                            <div class="flex-1 w-full bg-[#231F20]"></div>
+                            <div class="flex flex-1 w-full">
+                                <div class="flex-1 bg-[#707070]" title="Lightest"></div>
+                                <div class="flex-1 bg-[#4A4A4A]" title="Light"></div>
+                                <div class="flex-1 bg-[#231F20]" title="Base"></div>
+                                <div class="flex-1 bg-[#121212]" title="Dark"></div>
+                                <div class="flex-1 bg-[#000000]" title="Darkest"></div>
+                            </div>
+                        </div>
+                        <span class="block text-sm font-bold text-industrialBlack dark:text-white">Industrial</span>
+                        <span class="block text-xs text-slate-500 font-mono mt-1">#231F20</span>
+                    </div>
+
+                    <!-- Color 3: Raw Timber -->
+                    <div class="group text-center w-32 md:w-40">
+                        <div class="w-full aspect-square rounded-2xl overflow-hidden shadow-md mb-4 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-lg mx-auto flex flex-col border border-black/5">
+                            <div class="flex-1 w-full bg-[#D9C5B2]"></div>
+                            <div class="flex flex-1 w-full">
+                                <div class="flex-1 bg-[#F9F6F2]" title="Lightest"></div>
+                                <div class="flex-1 bg-[#EBE1D6]" title="Light"></div>
+                                <div class="flex-1 bg-[#D9C5B2]" title="Base"></div>
+                                <div class="flex-1 bg-[#B09A8B]" title="Dark"></div>
+                                <div class="flex-1 bg-[#877469]" title="Darkest"></div>
+                            </div>
+                        </div>
+                        <span class="block text-sm font-bold text-industrialBlack dark:text-white">Raw Timber</span>
+                        <span class="block text-xs text-slate-500 font-mono mt-1">#D9C5B2</span>
+                    </div>
+                    
+                    <!-- Color 4: Mill White -->
+                    <div class="group text-center w-32 md:w-40">
+                        <div class="w-full aspect-square rounded-2xl overflow-hidden shadow-md mb-4 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-lg mx-auto flex flex-col border border-black/10">
+                            <div class="flex-1 w-full bg-[#F9F6F0]"></div>
+                            <div class="flex flex-1 w-full border-t border-black/5">
+                                <div class="flex-1 bg-[#FFFFFF]" title="Lightest"></div>
+                                <div class="flex-1 bg-[#FAFAFA]" title="Light"></div>
+                                <div class="flex-1 bg-[#F9F6F0]" title="Base"></div>
+                                <div class="flex-1 bg-[#E0DED9]" title="Dark"></div>
+                                <div class="flex-1 bg-[#C4C3BF]" title="Darkest"></div>
+                            </div>
+                        </div>
+                        <span class="block text-sm font-bold text-industrialBlack dark:text-white">Mill White</span>
+                        <span class="block text-xs text-slate-500 font-mono mt-1">#F9F6F0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Typography (Nakamura Style Grid) -->
+            <div class="js-scroll-anim opacity-0">
+                <h4 class="text-sm uppercase tracking-widest text-orange font-bold mb-10 border-b border-black/5 dark:border-white/5 pb-4">Typography</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-8 border border-black/5 dark:border-white/5 rounded-2xl bg-white dark:bg-surface transition-all duration-500 hover:-translate-y-1 hover:shadow-lg">
+                        <div class="flex justify-between items-end mb-6">
+                            <span class="text-2xl font-bold-heading text-industrialBlack dark:text-white uppercase">Northwest</span>
+                            <span class="text-[10px] text-orange uppercase tracking-widest font-bold">Display</span>
+                        </div>
+                        <div class="text-3xl md:text-4xl text-industrialBlack dark:text-white mb-3">AA BB CC DD EE FF</div>
+                    </div>
+                    <div class="p-8 border border-black/5 dark:border-white/5 rounded-2xl bg-white dark:bg-surface transition-all duration-500 hover:-translate-y-1 hover:shadow-lg">
+                        <div class="flex justify-between items-end mb-6">
+                            <span class="text-2xl font-medium text-industrialBlack dark:text-white">Poppins</span>
+                            <span class="text-[10px] text-orange uppercase tracking-widest font-bold">Body Text</span>
+                        </div>
+                        <div class="text-2xl md:text-3xl text-industrialBlack dark:text-white mb-4 font-light">Aa Bb Cc Dd Ee Ff</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brand Applications (Nakamura Style Full-Width Layout) -->
+        <div class="mt-32 mb-32 border-t border-black/10 dark:border-white/10 pt-24 opacity-0 js-scroll-anim">
+            <h3 class="text-4xl md:text-5xl text-industrialBlack dark:text-white mb-16 tracking-tight">Industrial Application</h3>
+            
+            <div class="flex flex-col gap-24">
+                <!-- Fleet Logistics -->
+                <div class="group">
+                    <div class="w-full aspect-[4/3] md:aspect-video rounded-xl overflow-hidden mb-8 bg-slate-50 dark:bg-surface border border-black/5">
+                        <img src="images/zipolog-projector-mockup.png" alt="Fleet Mockup" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 filter">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
+                        <div class="md:col-span-4">
+                            <h4 class="text-2xl md:text-3xl text-industrialBlack dark:text-white m-0 uppercase">Fleet Logistics</h4>
+                        </div>
+                        <div class="md:col-span-8">
+                            <p class="text-base md:text-lg text-slate-500 font-light leading-relaxed m-0">
+                                High-visibility vehicle wraps designed for logging trucks and heavy machinery, ensuring brand recognition in remote forest environments.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industrial Signage -->
+                <div class="group">
+                    <div class="w-full aspect-[4/3] md:aspect-video rounded-xl overflow-hidden mb-8 bg-slate-50 dark:bg-surface border border-black/5">
+                        <img src="images/zipologtrophies.png" alt="Signage Mockup" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 filter">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
+                        <div class="md:col-span-4">
+                            <h4 class="text-2xl md:text-3xl text-industrialBlack dark:text-white m-0 uppercase">Mill Signage</h4>
+                        </div>
+                        <div class="md:col-span-8">
+                            <p class="text-base md:text-lg text-slate-500 font-light leading-relaxed m-0">
+                                Rigid, durable environmental graphics and safety wayfinding systems implemented across the mill's industrial complex.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Navigation -->
+        <div class="border-t border-black/10 dark:border-white/10 py-16 md:py-24 opacity-0 js-scroll-anim">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-12 md:gap-8">
+                
+                <div class="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
+                    <a href="nakamura.html" class="inline-flex flex-col items-center md:items-start group track-hover outline-none cursor-pointer">
+                        <div class="flex items-center gap-2 text-slate-400 group-hover:text-orange uppercase tracking-widest text-[10px] font-bold mb-6 transition-colors duration-300">
+                            <i class="ph ph-arrow-left text-lg transition-transform duration-500 group-hover:-translate-x-2"></i> Previous Project
+                        </div>
+                        <div class="relative grid place-items-center md:place-items-start">
+                            <h2 class="col-start-1 row-start-1 text-5xl md:text-6xl text-industrialBlack dark:text-white transition-opacity duration-1000 group-hover:opacity-0 m-0">Nakamura</h2>
+                            <h2 class="col-start-1 row-start-1 text-5xl md:text-6xl text-transparent bg-clip-text opacity-0 transition-opacity duration-1000 group-hover:opacity-100 menu-gradient-track m-0" aria-hidden="true">Nakamura</h2>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="hidden md:block w-[1px] h-24 bg-black/10 dark:bg-white/10"></div>
+
+                <div class="w-full md:w-1/2 flex flex-col items-center md:items-end text-center md:text-right">
+                    <a href="eudemonia.html" class="inline-flex flex-col items-center md:items-end group track-hover outline-none cursor-pointer">
+                        <div class="flex items-center gap-2 text-slate-400 group-hover:text-orange uppercase tracking-widest text-[10px] font-bold mb-6 transition-colors duration-300">
+                            Next Project <i class="ph ph-arrow-right text-lg transition-transform duration-500 group-hover:translate-x-2"></i>
+                        </div>
+                        <div class="relative grid place-items-center md:place-items-end">
+                            <h2 class="col-start-1 row-start-1 text-5xl md:text-6xl text-industrialBlack dark:text-white transition-opacity duration-1000 group-hover:opacity-0 m-0">Eudemonia</h2>
+                            <h2 class="col-start-1 row-start-1 text-5xl md:text-6xl text-transparent bg-clip-text opacity-0 transition-opacity duration-1000 group-hover:opacity-100 menu-gradient-track m-0" aria-hidden="true">Eudemonia</h2>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
 
 
     <!-- ==========================================

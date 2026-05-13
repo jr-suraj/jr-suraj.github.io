@@ -79,6 +79,28 @@
             }
         }
     </script>
+    <!-- Tailwind CSS Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', 
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#1c2431',
+                        orange: '#fb923c',
+                        surface: '#1e293b',
+                    },
+                    fontFamily: {
+                        // Force all font families on this page to use Telegraf
+                        sans: ['Telegraf', 'Inter', 'sans-serif'],
+                        serif: ['Telegraf', 'sans-serif'],
+                        display: ['Telegraf', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
     <!-- ==========================================
          Custom CSS (Cursor & Utilities)
@@ -101,6 +123,38 @@
         .anti-flicker { -webkit-backface-visibility: hidden; backface-visibility: hidden; -webkit-transform: translateZ(0); transform: translateZ(0); }
         .tool-logo { height: 38px; width: auto; max-width: 140px; object-fit: contain; will-change: transform; }
         @media (min-width: 768px) { .tool-logo { height: 46px; max-width: 180px; } }
+
+        @font-face {
+            font-family: 'Telegraf';
+            src: url('/fonts/TelegrafRegular.otf') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Telegraf';
+            src: url('/fonts/Telegraf\ UltraBold\ 800.otf') format('woff2');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Force Telegraf on this specific page to override Tailwind's default Playfair/Inter */
+        h1, h2, h3, h4, h5, .font-serif {
+            font-family: 'Telegraf', sans-serif !important;
+            font-weight: 800 !important;
+        }
+        p, span, div, .font-sans {
+            font-family: 'Telegraf', sans-serif !important;
+        }
+        /* Fallback for mono tracking */
+        .font-mono {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+        }
+        /* Reset light weights since Telegraf only has 400 and 800 loaded */
+        .font-light {
+            font-weight: 400 !important;
+        }
          /* Floating Back to Top States */
         #back-to-top { 
             opacity: 0; 
@@ -146,32 +200,24 @@
       display: block;
     }
 
-    /* Scanline overlay */
-    .scanline {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(0,255,255,0),
-        rgba(0,255,255,0.18),
-        rgba(0,255,255,0)
-      );
-      height: 220px;
-      width: 100%;
-      animation: scan 3.5s linear infinite;
-      pointer-events: none;
-      opacity: 0.55;
-      mix-blend-mode: screen;
-    }
+    /* --- HOLOGRAM SECTION UPDATES --- */
+        .scanline { 
+            position: absolute; 
+            top: 0;
+            left: 0; 
+            background: linear-gradient(to bottom, transparent, rgba(0,255,255,0.3), transparent); 
+            height: 25%; /* Keeps it proportional to the head */
+            width: 100%; 
+            animation: scan 2.5s linear infinite; 
+            pointer-events: none; 
+            z-index: 20; 
+        }
+        @keyframes scan { 
+            0% { transform: translateY(-100%); } 
+            100% { transform: translateY(400%); } 
+        }
 
-    @keyframes scan {
-      0% {
-        transform: translateY(-250px);
-      }
-      100% {
-        transform: translateY(120vh);
-      }
-    }
+    
 
     /* Noise flicker */
     .noise {
@@ -215,29 +261,37 @@
         0% { opacity: 0.7; }
         100% { opacity: 1; }
         }
-        .glitch {
-        position: relative;
-        width: 50vw;
+        /* GLITCH HEAD RESPONSIVE OVERRIDE */
+        .glitch { 
+            position: relative; 
+            width: 120vw; /* Massive width for mobile view */
+            max-width: none; 
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); 
+            display: flex;
+            justify-content: center;
         }
 
-        .glitch img {
-        width: 100%;
-        display: block;
+        /* Tablet View (768px) must come FIRST */
+        @media (min-width: 768px) { 
+            .glitch { 
+                
+                max-width: 70vw; 
+            } 
         }
 
-        /* Create two duplicate layers */
-        .glitch::before,
-        .glitch::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            /* IMPORTANT: Replace with your actual image path */
-            background-image: url("images/blueprint-head.png"); 
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.8;
-            mix-blend-mode: screen;
+        /* Desktop View (1024px) must come SECOND */
+        @media (min-width: 1024px) { 
+            .glitch { 
+                
+                max-width: 50vw; 
+            } 
+        }
+        
+        .glitch img { width: 100%; filter: cyanGlow; mix-blend-mode: screen; }
+        .glitch::before, .glitch::after {
+            content: ""; position: absolute; inset: 0;
+            background: url("/images/blueprint-head.png") no-repeat center/contain;
+            opacity: 0.5; mix-blend-mode: screen;
         }
 
         /* Cyan layer */
@@ -307,7 +361,7 @@
 
     <!-- Main Navigation Header -->
     <header id="main-header" class="fixed top-0 left-0 w-full z-[70] bg-white/70 dark:bg-navy/70 backdrop-blur-xl border-b border-black/5 dark:border-white/5 transition-all duration-500">
-        <div class="max-w-[1100px] mx-auto px-6 lg:px-8 h-20 flex items-center justify-between relative">
+        <div class="w-full px-6 lg:px-8 h-20 flex items-center justify-between relative">
             <a href="/#home" class="flex items-center gap-2.5 track-hover group">
                 <!-- Geometric Triangle Logo -->
                 <svg class="w-8 h-8 text-orange transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-180" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -345,39 +399,7 @@
 
     <!-- CONTENT INJECTED HERE BY JEKYLL -->
         <!-- Eudemonia Specific Fonts & Overrides -->
-<style>
-    @font-face {
-        font-family: 'Telegraf';
-        src: url('fonts/Telegraf-Regular.woff2') format('woff2');
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-    }
-    @font-face {
-        font-family: 'Telegraf';
-        src: url('fonts/Telegraf-Ultrabold.woff2') format('woff2');
-        font-weight: 800;
-        font-style: normal;
-        font-display: swap;
-    }
 
-    /* Force Telegraf on this specific page to override Tailwind's default Playfair/Inter */
-    .eudemonia-page h1, .eudemonia-page h2, .eudemonia-page h3, .eudemonia-page h4, .eudemonia-page h5, .eudemonia-page .font-serif {
-        font-family: 'Telegraf', sans-serif !important;
-        font-weight: 800 !important;
-    }
-    .eudemonia-page p, .eudemonia-page span, .eudemonia-page div, .eudemonia-page .font-sans {
-        font-family: 'Telegraf', sans-serif !important;
-    }
-    /* Fallback for mono tracking */
-    .eudemonia-page .font-mono {
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
-    }
-    /* Reset light weights since Telegraf only has 400 and 800 loaded */
-    .eudemonia-page .font-light {
-        font-weight: 400 !important;
-    }
-</style>
 
 <main class="eudemonia-page pt-32 pb-24">
         <div class="max-w-[1100px] mx-auto px-6 lg:px-8">
@@ -626,7 +648,7 @@
                             <div class="md:col-span-3">
                                 <span class="text-xs font-bold text-orange uppercase tracking-widest">Concept 03</span>
                             </div>
-                            <div class="md:col-span-9">
+                            <div class="md:col-span-9 mb-10">
                                 <h5 class="font-display font-extrabold text-2xl md:text-3xl text-black dark:text-white mb-3">Breathable Spacing</h5>
                                 <p class="text-slate-500 font-light text-lg">Utilizing an abundance of negative space and the Alabaster backdrop to evoke feelings of calm and clarity.</p>
                             </div>
@@ -715,15 +737,47 @@
                 </div>
             </div>
 
-            <!-- Next Project Navigation -->
-            <div class="border-t border-black/10 dark:border-white/10 py-20 text-center opacity-0 js-scroll-anim transition-colors duration-500">
-                <p class="text-orange uppercase tracking-widest text-sm font-bold mb-6">Next Project</p>
-                <a href="#" class="inline-block track-hover group">
-                    <div class="relative grid place-items-center">
-                        <h2 class="col-start-1 row-start-1 font-serif text-5xl md:text-7xl text-black dark:text-white transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0 tracking-tight">Kometra</h2>
-                        <h2 class="col-start-1 row-start-1 font-serif text-5xl md:text-7xl text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none tracking-tight" aria-hidden="true">Kometra</h2>
+            <!-- Project Navigation (Previous / Next) -->
+            <div class="border-t border-black/10 dark:border-white/10 py-16 md:py-24 opacity-0 js-scroll-anim transition-colors duration-500">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-12 md:gap-8">
+                    
+                    <!-- Previous Project Container (Handles the 50% width layout) -->
+                    <div class="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
+                        <!-- The Anchor Tag (Restricts the hover area only to the text) -->
+                        <a href="nakamura.html" class="inline-flex flex-col items-center md:items-start group track-hover outline-none cursor-pointer">
+                            <div class="flex items-center gap-2 text-slate-400 group-hover:text-orange uppercase tracking-widest text-sm font-bold mb-6 transition-colors duration-300">
+                                <i class="ph ph-arrow-left text-lg transition-transform duration-500 group-hover:-translate-x-2"></i> Previous Project
+                            </div>
+                            <div class="relative grid place-items-center md:place-items-start">
+                                <!-- Solid Text (Fades out on hover) -->
+                                <h2 class="col-start-1 row-start-1 font-serif text-5xl md:text-6xl text-black dark:text-white transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0 tracking-tight m-0">Nakamura</h2>
+                                <!-- Gradient Text (Fades in on hover) -->
+                                <h2 class="col-start-1 row-start-1 font-serif text-5xl md:text-6xl text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none tracking-tight m-0" aria-hidden="true">Nakamura</h2>
+                            </div>
+                        </a>
                     </div>
-                </a>
+
+                    <!-- Vertical Divider (Desktop) / Horizontal Divider (Mobile) -->
+                    <div class="hidden md:block w-[1px] h-24 bg-black/10 dark:bg-white/10"></div>
+                    <div class="md:hidden w-24 h-[1px] bg-black/10 dark:bg-white/10"></div>
+
+                    <!-- Next Project Container (Handles the 50% width layout) -->
+                    <div class="w-full md:w-1/2 flex flex-col items-center md:items-end text-center md:text-right">
+                        <!-- The Anchor Tag (Restricts the hover area only to the text) -->
+                        <a href="#" class="inline-flex flex-col items-center md:items-end group track-hover outline-none cursor-pointer">
+                            <div class="flex items-center gap-2 text-slate-400 group-hover:text-orange uppercase tracking-widest text-sm font-bold mb-6 transition-colors duration-300">
+                                Next Project <i class="ph ph-arrow-right text-lg transition-transform duration-500 group-hover:translate-x-2"></i>
+                            </div>
+                            <div class="relative grid place-items-center md:place-items-end">
+                                <!-- Solid Text (Fades out on hover) -->
+                                <h2 class="col-start-1 row-start-1 font-serif text-5xl md:text-6xl text-black dark:text-white transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0 tracking-tight m-0">Kometra</h2>
+                                <!-- Gradient Text (Fades in on hover) -->
+                                <h2 class="col-start-1 row-start-1 font-serif text-5xl md:text-6xl text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none tracking-tight m-0" aria-hidden="true">Kometra</h2>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
             </div>
 
         </div>

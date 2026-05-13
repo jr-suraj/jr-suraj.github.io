@@ -79,6 +79,28 @@
             }
         }
     </script>
+    <!-- Tailwind CSS Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', 
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#1c2431',
+                        orange: '#fb923c',
+                        surface: '#1e293b',
+                    },
+                    fontFamily: {
+                        // Force all font families on this page to use Telegraf
+                        sans: ['Telegraf', 'Inter', 'sans-serif'],
+                        serif: ['Telegraf', 'sans-serif'],
+                        display: ['Telegraf', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
     <!-- ==========================================
          Custom CSS (Cursor & Utilities)
@@ -101,6 +123,38 @@
         .anti-flicker { -webkit-backface-visibility: hidden; backface-visibility: hidden; -webkit-transform: translateZ(0); transform: translateZ(0); }
         .tool-logo { height: 38px; width: auto; max-width: 140px; object-fit: contain; will-change: transform; }
         @media (min-width: 768px) { .tool-logo { height: 46px; max-width: 180px; } }
+
+        @font-face {
+            font-family: 'Telegraf';
+            src: url('/fonts/TelegrafRegular.otf') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Telegraf';
+            src: url('/fonts/Telegraf\ UltraBold\ 800.otf') format('woff2');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Force Telegraf on this specific page to override Tailwind's default Playfair/Inter */
+        h1, h2, h3, h4, h5, .font-serif {
+            font-family: 'Telegraf', sans-serif !important;
+            font-weight: 800 !important;
+        }
+        p, span, div, .font-sans {
+            font-family: 'Telegraf', sans-serif !important;
+        }
+        /* Fallback for mono tracking */
+        .font-mono {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+        }
+        /* Reset light weights since Telegraf only has 400 and 800 loaded */
+        .font-light {
+            font-weight: 400 !important;
+        }
          /* Floating Back to Top States */
         #back-to-top { 
             opacity: 0; 
@@ -146,32 +200,24 @@
       display: block;
     }
 
-    /* Scanline overlay */
-    .scanline {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(0,255,255,0),
-        rgba(0,255,255,0.18),
-        rgba(0,255,255,0)
-      );
-      height: 220px;
-      width: 100%;
-      animation: scan 3.5s linear infinite;
-      pointer-events: none;
-      opacity: 0.55;
-      mix-blend-mode: screen;
-    }
+    /* --- HOLOGRAM SECTION UPDATES --- */
+        .scanline { 
+            position: absolute; 
+            top: 0;
+            left: 0; 
+            background: linear-gradient(to bottom, transparent, rgba(0,255,255,0.3), transparent); 
+            height: 25%; /* Keeps it proportional to the head */
+            width: 100%; 
+            animation: scan 2.5s linear infinite; 
+            pointer-events: none; 
+            z-index: 20; 
+        }
+        @keyframes scan { 
+            0% { transform: translateY(-100%); } 
+            100% { transform: translateY(400%); } 
+        }
 
-    @keyframes scan {
-      0% {
-        transform: translateY(-250px);
-      }
-      100% {
-        transform: translateY(120vh);
-      }
-    }
+    
 
     /* Noise flicker */
     .noise {
@@ -215,29 +261,37 @@
         0% { opacity: 0.7; }
         100% { opacity: 1; }
         }
-        .glitch {
-        position: relative;
-        width: 50vw;
+        /* GLITCH HEAD RESPONSIVE OVERRIDE */
+        .glitch { 
+            position: relative; 
+            width: 120vw; /* Massive width for mobile view */
+            max-width: none; 
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); 
+            display: flex;
+            justify-content: center;
         }
 
-        .glitch img {
-        width: 100%;
-        display: block;
+        /* Tablet View (768px) must come FIRST */
+        @media (min-width: 768px) { 
+            .glitch { 
+                
+                max-width: 70vw; 
+            } 
         }
 
-        /* Create two duplicate layers */
-        .glitch::before,
-        .glitch::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            /* IMPORTANT: Replace with your actual image path */
-            background-image: url("images/blueprint-head.png"); 
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.8;
-            mix-blend-mode: screen;
+        /* Desktop View (1024px) must come SECOND */
+        @media (min-width: 1024px) { 
+            .glitch { 
+                
+                max-width: 50vw; 
+            } 
+        }
+        
+        .glitch img { width: 100%; filter: cyanGlow; mix-blend-mode: screen; }
+        .glitch::before, .glitch::after {
+            content: ""; position: absolute; inset: 0;
+            background: url("/images/blueprint-head.png") no-repeat center/contain;
+            opacity: 0.5; mix-blend-mode: screen;
         }
 
         /* Cyan layer */
@@ -307,7 +361,7 @@
 
     <!-- Main Navigation Header -->
     <header id="main-header" class="fixed top-0 left-0 w-full z-[70] bg-white/70 dark:bg-navy/70 backdrop-blur-xl border-b border-black/5 dark:border-white/5 transition-all duration-500">
-        <div class="max-w-[1100px] mx-auto px-6 lg:px-8 h-20 flex items-center justify-between relative">
+        <div class="w-full px-6 lg:px-8 h-20 flex items-center justify-between relative">
             <a href="/#home" class="flex items-center gap-2.5 track-hover group">
                 <!-- Geometric Triangle Logo -->
                 <svg class="w-8 h-8 text-orange transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-180" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

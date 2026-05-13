@@ -277,15 +277,47 @@ title: Suraj | Nakamura House
                 </div>
             </div>
 
-            <!-- Next Project Navigation -->
-            <div class="border-t border-black/10 dark:border-white/10 py-20 text-center opacity-0 js-scroll-anim transition-colors duration-500">
-                <p class="text-orange uppercase tracking-widest text-sm font-bold mb-6">Next Project</p>
-                <a href="#" class="inline-block track-hover group">
-                    <div class="relative grid place-items-center">
-                        <h2 class="col-start-1 row-start-1 font-serif text-5xl md:text-7xl text-black dark:text-white transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0 tracking-tight">Kometra</h2>
-                        <h2 class="col-start-1 row-start-1 font-serif text-5xl md:text-7xl text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none tracking-tight" aria-hidden="true">Kometra</h2>
+            <!-- Project Navigation (Previous / Next) -->
+            <div class="border-t border-black/10 dark:border-white/10 py-16 md:py-24 opacity-0 js-scroll-anim transition-colors duration-500">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-12 md:gap-8">
+                    
+                    <!-- Previous Project Container (Handles the 50% width layout) -->
+                    <div class="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
+                        <!-- The Anchor Tag (Restricts the hover area only to the text) -->
+                        <a href="nakamura.html" class="inline-flex flex-col items-center md:items-start group track-hover outline-none cursor-pointer">
+                            <div class="flex items-center gap-2 text-slate-400 group-hover:text-orange uppercase tracking-widest text-sm font-bold mb-6 transition-colors duration-300">
+                                <i class="ph ph-arrow-left text-lg transition-transform duration-500 group-hover:-translate-x-2"></i> Previous Project
+                            </div>
+                            <div class="relative grid place-items-center md:place-items-start">
+                                <!-- Solid Text (Fades out on hover) -->
+                                <h2 class="col-start-1 row-start-1 font-serif text-5xl md:text-6xl text-black dark:text-white transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0 tracking-tight m-0">Nakamura</h2>
+                                <!-- Gradient Text (Fades in on hover) -->
+                                <h2 class="col-start-1 row-start-1 font-serif text-5xl md:text-6xl text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none tracking-tight m-0" aria-hidden="true">Nakamura</h2>
+                            </div>
+                        </a>
                     </div>
-                </a>
+
+                    <!-- Vertical Divider (Desktop) / Horizontal Divider (Mobile) -->
+                    <div class="hidden md:block w-[1px] h-24 bg-black/10 dark:bg-white/10"></div>
+                    <div class="md:hidden w-24 h-[1px] bg-black/10 dark:bg-white/10"></div>
+
+                    <!-- Next Project Container (Handles the 50% width layout) -->
+                    <div class="w-full md:w-1/2 flex flex-col items-center md:items-end text-center md:text-right">
+                        <!-- The Anchor Tag (Restricts the hover area only to the text) -->
+                        <a href="#" class="inline-flex flex-col items-center md:items-end group track-hover outline-none cursor-pointer">
+                            <div class="flex items-center gap-2 text-slate-400 group-hover:text-orange uppercase tracking-widest text-sm font-bold mb-6 transition-colors duration-300">
+                                Next Project <i class="ph ph-arrow-right text-lg transition-transform duration-500 group-hover:translate-x-2"></i>
+                            </div>
+                            <div class="relative grid place-items-center md:place-items-end">
+                                <!-- Solid Text (Fades out on hover) -->
+                                <h2 class="col-start-1 row-start-1 font-serif text-5xl md:text-6xl text-black dark:text-white transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0 tracking-tight m-0">Kometra</h2>
+                                <!-- Gradient Text (Fades in on hover) -->
+                                <h2 class="col-start-1 row-start-1 font-serif text-5xl md:text-6xl text-transparent bg-clip-text opacity-0 transition-opacity duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 menu-gradient-track pointer-events-none tracking-tight m-0" aria-hidden="true">Kometra</h2>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
             </div>
 
         </div>
